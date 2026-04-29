@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="fr" id="htmlRoot">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="theme-color" content="#0052CC">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="description" content="Optique Tamsena - Experts en lunettes médicales, lunettes de soleil, contactologie et ocularisterie à Tamsena, Maroc.">
+    <title>Optique Tamsena | Opticien - Optométriste - Contactologie - Oculariste</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar" id="navbar">
+    <div class="nav-container">
+        <a href="#hero" class="nav-logo">
+            <i class="fas fa-glasses"></i>
+            <span>Optique Tamsena</span>
+        </a>
+        <div class="nav-menu" id="navMenu">
+            <a href="#services" class="nav-link" data-fr="Services" data-ar="الخدمات">Services</a>
+            <a href="#galerie" class="nav-link" data-fr="Galerie" data-ar="المعرض">Galerie</a>
+            <a href="#rendez-vous" class="nav-link" data-fr="Rendez-vous" data-ar="موعد">Rendez-vous</a>
+            <a href="#localisation" class="nav-link" data-fr="Localisation" data-ar="الموقع">Localisation</a>
+            <a href="#contact" class="nav-link" data-fr="Contact" data-ar="تواصل">Contact</a>
+        </div>
+        <div class="nav-actions">
+            <button class="lang-toggle" id="langToggle" onclick="toggleLanguage()">
+                <span id="langLabel">عربي</span>
+            </button>
+            <a href="https://wa.me/212666849903?text=Bonjour%20Optique%20Tamsena%20%F0%9F%91%93%0A%0AJe%20souhaite%20obtenir%20des%20informations%20sur%20vos%20services%20et%20tarifs."
+               class="btn-wa-nav" target="_blank">
+                <i class="fab fa-whatsapp"></i>
+                <span data-fr="WhatsApp" data-ar="واتساب">WhatsApp</span>
+            </a>
+            <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section id="hero" class="hero">
+
+    <!-- Particules décoratives -->
+    <div class="hero-particles">
+        <span></span><span></span><span></span>
+        <span></span><span></span><span></span>
+    </div>
+
+    <div class="hero-inner">
+
+        <!-- GAUCHE : Texte -->
+        <div class="hero-text">
+            <div class="hero-badge" data-fr="⭐ Votre Opticien de Confiance à Tamsena" data-ar="⭐ بصريك الموثوق في تامسنا">
+                ⭐ Votre Opticien de Confiance à Tamsena
+            </div>
+            <h1 class="hero-title">
+                <span data-fr="Votre Vision, " data-ar="بصرك، ">Votre Vision, </span><span class="accent-text" data-fr="Notre Passion" data-ar="شغفنا">Notre Passion</span>
+            </h1>
+            <p class="hero-subtitle" data-fr="Spécialistes en lunettes médicales, lunettes de soleil, lentilles de contact et prothèses oculaires — Qualité premium, prix accessibles." data-ar="متخصصون في النظارات الطبية، نظارات الشمس، العدسات اللاصقة والعيون الاصطناعية — جودة عالية، أسعار في المتناول.">
+                Spécialistes en lunettes médicales, lunettes de soleil, lentilles de contact et prothèses oculaires — Qualité premium, prix accessibles.
+            </p>
+            <div class="hero-cta">
+                <a href="#rendez-vous" class="btn-primary">
+                    <i class="fas fa-calendar-check"></i>
+                    <span data-fr="Prendre Rendez-vous" data-ar="احجز موعد">Prendre Rendez-vous</span>
+                </a>
+                <a href="https://wa.me/212666849903?text=Bonjour%20Optique%20Tamsena%20%F0%9F%91%93%0A%0AJe%20souhaite%20obtenir%20des%20informations%20sur%20vos%20services%20et%20tarifs."
+                   class="btn-ghost" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                    <span data-fr="Nous Contacter" data-ar="تواصل معنا">Nous Contacter</span>
+                </a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-n">500+</span>
+                    <span class="stat-l" data-fr="Clients Satisfaits" data-ar="عميل راضٍ">Clients Satisfaits</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <span class="stat-n">4</span>
+                    <span class="stat-l" data-fr="Services Experts" data-ar="خدمات متخصصة">Services Experts</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <span class="stat-n">100%</span>
+                    <span class="stat-l" data-fr="Satisfaction" data-ar="رضا العملاء">Satisfaction</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- DROITE : Photo professionnelle -->
+        <div class="hero-photo-col">
+            <!-- Cercles décoratifs -->
+            <div class="hpc-ring hpc-ring-1"></div>
+            <div class="hpc-ring hpc-ring-2"></div>
+
+            <!-- VIDEO CARD — fo9 sura -->
+            <div class="hero-video-card" onclick="openVideoModal()" title="Regarder la vidéo">
+                <div class="hvc-thumb">
+                    <video src="videos/video1.mp4" muted preload="metadata" class="hvc-preview"></video>
+                    <div class="hvc-play-btn">
+                        <i class="fas fa-play"></i>
+                    </div>
+                </div>
+                <div class="hvc-info">
+                    <strong data-fr="Notre Expertise" data-ar="خبرتنا">Notre Expertise</strong>
+                    <small data-fr="▶ Regarder la vidéo" data-ar="▶ شاهد الفيديو">▶ Regarder la vidéo</small>
+                </div>
+            </div>
+
+            <!-- Cadre photo -->
+            <div class="hero-photo-frame">
+                <img src="images/photo1.jpeg"
+                     alt="Expert opticien Optique Tamsena"
+                     class="hero-photo-img">
+                <!-- Gradient bas pour qualité visuelle -->
+                <div class="hero-photo-gradient"></div>
+                <!-- Badge expert sur la photo -->
+                <div class="hero-photo-tag">
+                    <i class="fas fa-user-doctor"></i>
+                    <span data-fr="Expert Certifié" data-ar="خبير معتمد">Expert Certifié</span>
+                </div>
+            </div>
+
+            <!-- Badge BB GR flottant -->
+            <div class="hero-badge-float">
+                <i class="fas fa-award"></i>
+                <div>
+                    <strong>BB GR</strong>
+                    <small data-fr="Certifié" data-ar="معتمد">Certifié</small>
+                </div>
+            </div>
+
+            <!-- Stat flottante -->
+            <div class="hero-stat-float">
+                <span class="stat-n">10+</span>
+                <span data-fr="ans d'expérience" data-ar="سنوات خبرة">ans d'expérience</span>
+            </div>
+
+
+        </div>
+
+    </div>
+
+    <div class="hero-wave">
+        <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+            <path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="#ffffff"/>
+        </svg>
+    </div>
+</section>
+
+<!-- ===== SERVICES ===== -->
+<section id="services" class="section services">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-tag" data-fr="Ce que nous faisons" data-ar="ما نقدمه">Ce que nous faisons</span>
+            <h2 data-fr="Nos Services" data-ar="خدماتنا">Nos Services</h2>
+            <p data-fr="Une gamme complète de soins optiques professionnels pour toute la famille." data-ar="مجموعة كاملة من الخدمات البصرية المتخصصة لكل أفراد العائلة.">Une gamme complète de soins optiques professionnels pour toute la famille.</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card reveal">
+                <div class="service-icon-wrap">
+                    <i class="fas fa-glasses"></i>
+                </div>
+                <h3 data-fr="Opticien" data-ar="بصري">Opticien</h3>
+                <p data-fr="Large choix de montures et verres correcteurs pour tous les âges et tous les styles. Marques nationales et internationales." data-ar="مجموعة واسعة من الإطارات والعدسات لجميع الأعمار والأذواق. ماركات وطنية وعالمية.">Large choix de montures et verres correcteurs pour tous les âges et tous les styles. Marques nationales et internationales.</p>
+                <div class="service-cta">
+                    <a href="#rendez-vous" data-fr="Prendre RDV →" data-ar="احجز موعد →">Prendre RDV →</a>
+                </div>
+            </div>
+            <div class="service-card reveal">
+                <div class="service-icon-wrap">
+                    <i class="fas fa-eye"></i>
+                </div>
+                <h3 data-fr="Optométriste" data-ar="قياس البصر">Optométriste</h3>
+                <p data-fr="Examen de vue complet et précis avec équipements modernes. Détection et correction de tous les défauts visuels." data-ar="فحص بصري شامل ودقيق بأجهزة حديثة. كشف وتصحيح جميع عيوب الرؤية.">Examen de vue complet et précis avec équipements modernes. Détection et correction de tous les défauts visuels.</p>
+                <div class="service-cta">
+                    <a href="#rendez-vous" data-fr="Prendre RDV →" data-ar="احجز موعد →">Prendre RDV →</a>
+                </div>
+            </div>
+            <div class="service-card reveal">
+                <div class="service-icon-wrap">
+                    <i class="fas fa-circle-dot"></i>
+                </div>
+                <h3 data-fr="Contactologie" data-ar="العدسات اللاصقة">Contactologie</h3>
+                <p data-fr="Adaptation et suivi personnalisé de lentilles de contact journalières, mensuelles ou annuelles. Confort garanti." data-ar="تركيب ومتابعة مخصصة للعدسات اللاصقة اليومية، الشهرية أو السنوية. راحة مضمونة.">Adaptation et suivi personnalisé de lentilles de contact journalières, mensuelles ou annuelles. Confort garanti.</p>
+                <div class="service-cta">
+                    <a href="#rendez-vous" data-fr="Prendre RDV →" data-ar="احجز موعد →">Prendre RDV →</a>
+                </div>
+            </div>
+            <div class="service-card reveal">
+                <div class="service-icon-wrap">
+                    <i class="fas fa-user-doctor"></i>
+                </div>
+                <h3 data-fr="Oculariste" data-ar="أطراف العين">Oculariste</h3>
+                <p data-fr="Confection et adaptation de prothèses oculaires sur mesure avec un suivi médical personnalisé et bienveillant." data-ar="تصنيع وتركيب عيون اصطناعية مخصصة مع متابعة طبية شخصية ورعاية متميزة.">Confection et adaptation de prothèses oculaires sur mesure avec un suivi médical personnalisé et bienveillant.</p>
+                <div class="service-cta">
+                    <a href="#rendez-vous" data-fr="Prendre RDV →" data-ar="احجز موعد →">Prendre RDV →</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== POURQUOI NOUS ===== -->
+<section class="section about-section">
+    <div class="container">
+        <div class="about-grid">
+            <div class="about-visual reveal">
+                <div class="about-img-box">
+                    <img src="images/magasin.jpeg" alt="Optique Tamsena - Notre Magasin">
+                </div>
+                <div class="about-float-badge">
+                    <i class="fas fa-award"></i>
+                    <div>
+                        <strong>BB GR</strong>
+                        <span data-fr="Certifié" data-ar="معتمد">Certifié</span>
+                    </div>
+                </div>
+                <div class="about-float-stat">
+                    <strong>10+</strong>
+                    <span data-fr="Années d'expérience" data-ar="سنوات خبرة">Années d'expérience</span>
+                </div>
+            </div>
+            <div class="about-text reveal">
+                <span class="section-tag" data-fr="Pourquoi nous choisir" data-ar="لماذا تختارنا">Pourquoi nous choisir</span>
+                <h2 data-fr="L'Excellence Optique à Tamsena" data-ar="التميز البصري في تامسنا">L'Excellence Optique à Tamsena</h2>
+                <p class="about-intro" data-fr="Chez Optique Tamsena, nous combinons expertise professionnelle, matériel de pointe et service chaleureux pour vous offrir la meilleure expérience optique." data-ar="في أوبتيك تامسنا، نجمع بين الخبرة المهنية، المعدات المتطورة والخدمة الحارة لنمنحك أفضل تجربة بصرية.">
+                    Chez Optique Tamsena, nous combinons expertise professionnelle, matériel de pointe et service chaleureux pour vous offrir la meilleure expérience optique.
+                </p>
+                <div class="features-list">
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fas fa-check"></i></div>
+                        <div>
+                            <h4 data-fr="Expertise Certifiée" data-ar="خبرة معتمدة">Expertise Certifiée</h4>
+                            <p data-fr="Équipe qualifiée avec certifications professionnelles reconnues" data-ar="فريق مؤهل بشهادات مهنية معترف بها">Équipe qualifiée avec certifications professionnelles reconnues</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fas fa-check"></i></div>
+                        <div>
+                            <h4 data-fr="Prix Transparents" data-ar="أسعار شفافة">Prix Transparents</h4>
+                            <p data-fr="Meilleur rapport qualité-prix, sans frais cachés" data-ar="أفضل جودة بسعر عادل، بدون رسوم خفية">Meilleur rapport qualité-prix, sans frais cachés</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fas fa-check"></i></div>
+                        <div>
+                            <h4 data-fr="Grandes Marques" data-ar="ماركات عالمية">Grandes Marques</h4>
+                            <p data-fr="Sélection exclusive des meilleures marques mondiales" data-ar="مجموعة مختارة من أفضل الماركات العالمية">Sélection exclusive des meilleures marques mondiales</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fas fa-check"></i></div>
+                        <div>
+                            <h4 data-fr="Service Rapide" data-ar="خدمة سريعة">Service Rapide</h4>
+                            <p data-fr="Livraison express de vos lunettes et lentilles" data-ar="تسليم سريع لنظاراتك وعدساتك">Livraison express de vos lunettes et lentilles</p>
+                        </div>
+                    </div>
+                </div>
+                <a href="#rendez-vous" class="btn-primary inline-btn">
+                    <i class="fas fa-calendar-check"></i>
+                    <span data-fr="Réserver Maintenant" data-ar="احجز الآن">Réserver Maintenant</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== GALERIE ===== -->
+<section id="galerie" class="section gallery-section">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-tag" data-fr="Nos Collections" data-ar="مجموعاتنا">Nos Collections</span>
+            <h2 data-fr="Notre Galerie" data-ar="معرضنا">Notre Galerie</h2>
+            <p data-fr="Découvrez notre sélection de lunettes médicales, solaires et lentilles." data-ar="اكتشف مجموعتنا من النظارات الطبية، الشمسية والعدسات.">Découvrez notre sélection de lunettes médicales, solaires et lentilles.</p>
+        </div>
+        <div class="gallery-filters">
+            <button class="filter-btn active" onclick="filterGallery(this,'all')" data-fr="Tout" data-ar="الكل">Tout</button>
+            <button class="filter-btn" onclick="filterGallery(this,'medical')" data-fr="Lunettes Médicales" data-ar="نظارات طبية">Lunettes Médicales</button>
+            <button class="filter-btn" onclick="filterGallery(this,'soleil')" data-fr="Lunettes de Soleil" data-ar="نظارات شمس">Lunettes de Soleil</button>
+            <button class="filter-btn" onclick="filterGallery(this,'lentilles')" data-fr="Lentilles" data-ar="عدسات">Lentilles</button>
+            <button class="filter-btn" onclick="filterGallery(this,'video')" data-fr="Vidéos" data-ar="فيديوهات">Vidéos</button>
+        </div>
+        <div class="gallery-grid">
+
+            <div class="gal-item reveal" data-cat="all medical">
+                <img src="images/photo2.jpeg" alt="Optique Tamsena - Collection lunettes">
+                <div class="gal-overlay"><i class="fas fa-search-plus"></i></div>
+            </div>
+
+            <div class="gal-item reveal" data-cat="all medical">
+                <img src="images/photo3.jpeg" alt="Optique Tamsena - Lunettes médicales">
+                <div class="gal-overlay"><i class="fas fa-search-plus"></i></div>
+            </div>
+
+            <div class="gal-item reveal" data-cat="all soleil">
+                <img src="images/photo4.jpeg" alt="Optique Tamsena - Lunettes de soleil">
+                <div class="gal-overlay"><i class="fas fa-search-plus"></i></div>
+            </div>
+
+            <div class="gal-item reveal" data-cat="all medical">
+                <img src="images/photo5.jpeg" alt="Optique Tamsena - Collection montures">
+                <div class="gal-overlay"><i class="fas fa-search-plus"></i></div>
+            </div>
+
+            <div class="gal-item reveal" data-cat="all soleil">
+                <img src="images/photo6.jpeg" alt="Optique Tamsena - Lunettes soleil collection">
+                <div class="gal-overlay"><i class="fas fa-search-plus"></i></div>
+            </div>
+
+            <div class="gal-item gal-video reveal" data-cat="all video">
+                <video src="videos/video1.mp4" muted loop playsinline preload="metadata"></video>
+                <div class="gal-overlay vid-overlay"><i class="fas fa-play"></i></div>
+            </div>
+
+            </div>
+        </div>
+        <div class="gallery-cta">
+            <a href="https://www.instagram.com/optique_tamesna?igsh=b3pxdjZ1YXo3bmQz" target="_blank" class="btn-outline">
+                <i class="fab fa-instagram"></i>
+                <span data-fr="Voir plus sur Instagram" data-ar="شاهد المزيد على إنستغرام">Voir plus sur Instagram</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ===== RENDEZ-VOUS ===== -->
+<section id="rendez-vous" class="section rdv-section">
+    <div class="container">
+        <div class="section-header light">
+            <span class="section-tag light-tag" data-fr="Réservation facile" data-ar="حجز سهل">Réservation facile</span>
+            <h2 data-fr="Prendre Rendez-vous" data-ar="احجز موعدك">Prendre Rendez-vous</h2>
+            <p data-fr="Remplissez le formulaire ci-dessous — votre demande sera envoyée directement sur notre WhatsApp." data-ar="املأ النموذج أدناه — سيُرسَل طلبك مباشرة على واتساب الخاص بنا.">Remplissez le formulaire ci-dessous — votre demande sera envoyée directement sur notre WhatsApp.</p>
+        </div>
+        <div class="rdv-wrapper">
+            <form class="rdv-form" id="rdvForm" onsubmit="sendRDV(event)">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label data-fr="Nom Complet *" data-ar="الاسم الكامل *">Nom Complet *</label>
+                        <input type="text" id="fName" placeholder="Votre nom complet" required>
+                    </div>
+                    <div class="form-group">
+                        <label data-fr="Téléphone *" data-ar="رقم الهاتف *">Téléphone *</label>
+                        <input type="tel" id="fPhone" placeholder="+212 6XX-XXXXXX" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label data-fr="Date Souhaitée *" data-ar="التاريخ المطلوب *">Date Souhaitée *</label>
+                        <input type="date" id="fDate" required>
+                    </div>
+                    <div class="form-group">
+                        <label data-fr="Heure Souhaitée *" data-ar="الوقت المطلوب *">Heure Souhaitée *</label>
+                        <input type="time" id="fTime" min="09:00" max="21:00" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label data-fr="Service Souhaité *" data-ar="الخدمة المطلوبة *">Service Souhaité *</label>
+                    <select id="fService" required>
+                        <option value="" data-fr="-- Choisir un service --" data-ar="-- اختر خدمة --">-- Choisir un service --</option>
+                        <option value="Opticien - Lunettes médicales" data-fr="Opticien - Lunettes médicales" data-ar="بصري - نظارات طبية">Opticien - Lunettes médicales</option>
+                        <option value="Optométriste - Examen de vue" data-fr="Optométriste - Examen de vue" data-ar="قياس البصر - فحص العيون">Optométriste - Examen de vue</option>
+                        <option value="Contactologie - Lentilles" data-fr="Contactologie - Lentilles" data-ar="عدسات لاصقة">Contactologie - Lentilles</option>
+                        <option value="Oculariste - Prothèse oculaire" data-fr="Oculariste - Prothèse oculaire" data-ar="أطراف العين - عيون اصطناعية">Oculariste - Prothèse oculaire</option>
+                        <option value="Lunettes de Soleil" data-fr="Lunettes de Soleil" data-ar="نظارات الشمس">Lunettes de Soleil</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label data-fr="Message (optionnel)" data-ar="رسالة (اختياري)">Message (optionnel)</label>
+                    <textarea id="fMessage" rows="3" placeholder="Décrivez votre besoin ou posez votre question..."></textarea>
+                </div>
+                <button type="submit" class="btn-submit">
+                    <i class="fab fa-whatsapp"></i>
+                    <span data-fr="Confirmer via WhatsApp" data-ar="تأكيد عبر واتساب">Confirmer via WhatsApp</span>
+                </button>
+                <p class="form-note" data-fr="Nous vous confirmerons votre rendez-vous dans les plus brefs délais." data-ar="سنؤكد موعدك في أقرب وقت ممكن.">Nous vous confirmerons votre rendez-vous dans les plus brefs délais.</p>
+            </form>
+            <div class="rdv-info">
+                <div class="info-block reveal">
+                    <div class="ib-icon"><i class="fas fa-clock"></i></div>
+                    <div>
+                        <h4 data-fr="Horaires d'Ouverture" data-ar="أوقات العمل">Horaires d'Ouverture</h4>
+                        <p data-fr="Lundi – Samedi: 9h00 – 21h00" data-ar="الاثنين – السبت: 9:00 – 21:00">Lundi – Samedi: 9h00 – 21h00</p>
+                    </div>
+                </div>
+                <div class="info-block reveal">
+                    <div class="ib-icon"><i class="fab fa-whatsapp"></i></div>
+                    <div>
+                        <h4 data-fr="WhatsApp Direct" data-ar="واتساب مباشر">WhatsApp Direct</h4>
+                        <p>+212 666-849903</p>
+                        <a href="https://wa.me/212666849903" target="_blank" class="quick-wa" data-fr="Écrire maintenant →" data-ar="اكتب الآن →">Écrire maintenant →</a>
+                    </div>
+                </div>
+                <div class="info-block reveal">
+                    <div class="ib-icon"><i class="fas fa-map-marker-alt"></i></div>
+                    <div>
+                        <h4 data-fr="Notre Adresse" data-ar="عنواننا">Notre Adresse</h4>
+                        <p data-fr="Tamsena, Maroc" data-ar="تامسنا، المغرب">Tamsena, Maroc</p>
+                        <a href="https://maps.app.goo.gl/hrVUjuPNgTYFWxdM6" target="_blank" class="quick-wa" data-fr="Voir sur Google Maps →" data-ar="عرض على Google Maps →">Voir sur Google Maps →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== LOCALISATION ===== -->
+<section id="localisation" class="section location-section">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-tag" data-fr="Où nous trouver" data-ar="أين نجدكم">Où nous trouver</span>
+            <h2 data-fr="Notre Localisation" data-ar="موقعنا">Notre Localisation</h2>
+            <p data-fr="Venez nous rendre visite à Tamsena, nous serons ravis de vous accueillir." data-ar="زورونا في تامسنا، سيسعدنا استقبالكم.">Venez nous rendre visite à Tamsena, nous serons ravis de vous accueillir.</p>
+        </div>
+        <div class="location-grid">
+            <div class="map-card reveal">
+                <a href="https://maps.app.goo.gl/hrVUjuPNgTYFWxdM6" target="_blank" class="map-link-card">
+                    <div class="map-visual">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <div class="map-pin"><i class="fas fa-map-marker-alt"></i></div>
+                    </div>
+                    <div class="map-card-content">
+                        <h3 data-fr="Optique Tamsena" data-ar="أوبتيك تامسنا">Optique Tamsena</h3>
+                        <p data-fr="Tamsena, Rabat-Salé-Kénitra, Maroc" data-ar="تامسنا، الرباط-سلا-القنيطرة، المغرب">Tamsena, Rabat-Salé-Kénitra, Maroc</p>
+                        <span class="map-open-btn" data-fr="Ouvrir dans Google Maps" data-ar="فتح في Google Maps">Ouvrir dans Google Maps</span>
+                    </div>
+                </a>
+            </div>
+            <div class="location-details reveal">
+                <div class="loc-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <h4 data-fr="Adresse" data-ar="العنوان">Adresse</h4>
+                        <p data-fr="Tamsena, Rabat-Salé-Kénitra, Maroc" data-ar="تامسنا، الرباط-سلا-القنيطرة، المغرب">Tamsena, Rabat-Salé-Kénitra, Maroc</p>
+                    </div>
+                </div>
+                <div class="loc-item">
+                    <i class="fab fa-whatsapp"></i>
+                    <div>
+                        <h4>WhatsApp</h4>
+                        <p>+212 666-849903</p>
+                    </div>
+                </div>
+                <div class="loc-item">
+                    <i class="fas fa-clock"></i>
+                    <div>
+                        <h4 data-fr="Horaires" data-ar="أوقات العمل">Horaires</h4>
+                        <p data-fr="Lun–Sam: 9h00 – 21h00" data-ar="الاثنين–السبت: 9:00 – 21:00">Lun–Sam: 9h00 – 21h00</p>
+                    </div>
+                </div>
+                <a href="https://maps.app.goo.gl/hrVUjuPNgTYFWxdM6" target="_blank" class="btn-directions">
+                    <i class="fas fa-directions"></i>
+                    <span data-fr="Obtenir l'Itinéraire" data-ar="الحصول على الاتجاهات">Obtenir l'Itinéraire</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== CONTACT / SOCIAL ===== -->
+<section id="contact" class="section social-section">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-tag" data-fr="Restez connectés" data-ar="ابقوا على تواصل">Restez connectés</span>
+            <h2 data-fr="Suivez-Nous" data-ar="تابعونا">Suivez-Nous</h2>
+            <p data-fr="Retrouvez nos dernières collections, offres spéciales et actualités sur nos réseaux." data-ar="اكتشف أحدث مجموعاتنا، العروض الخاصة والأخبار على شبكاتنا الاجتماعية.">Retrouvez nos dernières collections, offres spéciales et actualités sur nos réseaux.</p>
+        </div>
+        <div class="social-cards">
+            <a href="https://www.instagram.com/optique_tamesna?igsh=b3pxdjZ1YXo3bmQz" target="_blank" class="soc-card instagram reveal">
+                <div class="soc-icon"><i class="fab fa-instagram"></i></div>
+                <h3>Instagram</h3>
+                <p>@optique_tamesna</p>
+                <span class="soc-btn" data-fr="Voir notre page" data-ar="شاهد صفحتنا">Voir notre page <i class="fas fa-arrow-right"></i></span>
+            </a>
+            <a href="https://www.facebook.com/share/1BAfBjjJYR/" target="_blank" class="soc-card facebook reveal">
+                <div class="soc-icon"><i class="fab fa-facebook-f"></i></div>
+                <h3>Facebook</h3>
+                <p data-fr="Optique Tamsena" data-ar="أوبتيك تامسنا">Optique Tamsena</p>
+                <span class="soc-btn" data-fr="Voir notre page" data-ar="شاهد صفحتنا">Voir notre page <i class="fas fa-arrow-right"></i></span>
+            </a>
+            <a href="https://wa.me/212666849903?text=Bonjour%20Optique%20Tamsena%20%F0%9F%91%93%0A%0AJe%20souhaite%20obtenir%20des%20informations%20sur%20vos%20services%20et%20tarifs."
+               target="_blank" class="soc-card whatsapp reveal">
+                <div class="soc-icon"><i class="fab fa-whatsapp"></i></div>
+                <h3>WhatsApp</h3>
+                <p>+212 666-849903</p>
+                <span class="soc-btn" data-fr="Nous écrire" data-ar="راسلنا">Nous écrire <i class="fas fa-arrow-right"></i></span>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="footer-logo">
+                    <i class="fas fa-glasses"></i>
+                    <span>Optique Tamsena</span>
+                </div>
+                <p data-fr="Votre expert en optique médicale et lunettes de soleil à Tamsena. Qualité, expertise et service depuis plus de 10 ans." data-ar="خبيرك في البصريات الطبية ونظارات الشمس في تامسنا. جودة، خبرة وخدمة منذ أكثر من 10 سنوات.">
+                    Votre expert en optique médicale et lunettes de soleil à Tamsena. Qualité, expertise et service depuis plus de 10 ans.
+                </p>
+                <div class="footer-socials">
+                    <a href="https://www.instagram.com/optique_tamesna?igsh=b3pxdjZ1YXo3bmQz" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/share/1BAfBjjJYR/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://wa.me/212666849903" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4 data-fr="Services" data-ar="الخدمات">Services</h4>
+                <ul>
+                    <li><a href="#services" data-fr="Opticien" data-ar="بصري">Opticien</a></li>
+                    <li><a href="#services" data-fr="Optométriste" data-ar="قياس البصر">Optométriste</a></li>
+                    <li><a href="#services" data-fr="Contactologie" data-ar="عدسات لاصقة">Contactologie</a></li>
+                    <li><a href="#services" data-fr="Oculariste" data-ar="أطراف العين">Oculariste</a></li>
+                    <li><a href="#services" data-fr="Lunettes de Soleil" data-ar="نظارات الشمس">Lunettes de Soleil</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4 data-fr="Contact" data-ar="التواصل">Contact</h4>
+                <p><i class="fab fa-whatsapp"></i> +212 666-849903</p>
+                <p><i class="fas fa-map-marker-alt"></i> <span data-fr="Tamsena, Maroc" data-ar="تامسنا، المغرب">Tamsena, Maroc</span></p>
+                <p><i class="fas fa-clock"></i> <span data-fr="9h–21h (Lun–Sam)" data-ar="9–21 (الاثنين–السبت)">9h–21h (Lun–Sam)</span></p>
+                <a href="https://maps.app.goo.gl/hrVUjuPNgTYFWxdM6" target="_blank" class="footer-map-btn" data-fr="📍 Voir sur Maps" data-ar="📍 عرض على الخريطة">📍 Voir sur Maps</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© <span id="footerYear"></span> Optique Tamsena. <span data-fr="Tous droits réservés." data-ar="جميع الحقوق محفوظة.">Tous droits réservés.</span></p>
+        </div>
+    </div>
+</footer>
+
+<!-- ===== WHATSAPP FLOAT ===== -->
+<a href="https://wa.me/212666849903?text=Bonjour%20Optique%20Tamsena%20%F0%9F%91%93%0A%0AJe%20souhaite%20obtenir%20des%20informations%20sur%20vos%20services%20et%20tarifs."
+   class="wa-float" target="_blank" id="waFloat">
+    <i class="fab fa-whatsapp"></i>
+    <span class="wa-pulse"></span>
+    <div class="wa-tooltip">
+        <strong data-fr="Chattez avec nous !" data-ar="تحدث معنا!">Chattez avec nous !</strong>
+        <small data-fr="Réponse rapide garantie" data-ar="رد سريع مضمون">Réponse rapide garantie</small>
+    </div>
+</a>
+
+<!-- ===== SCROLL TO TOP ===== -->
+<button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Scroll to top">
+    <i class="fas fa-chevron-up"></i>
+</button>
+
+<script src="script.js"></script>
+
+<!-- ===== VIDEO MODAL ===== -->
+<div class="video-modal" id="videoModal">
+    <div class="vm-backdrop" onclick="closeVideoModal()"></div>
+    <div class="vm-content">
+        <button class="vm-close" onclick="closeVideoModal()" aria-label="Fermer">
+            <i class="fas fa-times"></i>
+        </button>
+        <div class="vm-header">
+            <i class="fas fa-glasses"></i>
+            <span data-fr="Optique Tamsena — Notre Expertise" data-ar="أوبتيك تامسنا — خبرتنا">Optique Tamsena — Notre Expertise</span>
+        </div>
+        <video src="videos/video1.mp4" controls id="modalVideo" class="vm-video" playsinline></video>
+    </div>
+</div>
+
+</body>
+</html>
