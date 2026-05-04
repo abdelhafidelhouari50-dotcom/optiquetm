@@ -1,577 +1,1333 @@
 <!DOCTYPE html>
-<html lang="fr" id="htmlRoot">
+<html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <meta name="theme-color" content="#0052CC">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="description" content="Optique Tamsena - Experts en lunettes médicales, lunettes de soleil, contactologie et ocularisterie à Tamsena, Maroc.">
-    <title>Optique Tamsena | Opticien - Optométriste - Contactologie - Oculariste</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Elbaraka Vision - البصريات البركة | خدمات بصرية احترافية، فحص النظر، نظارات طبية وشمسية، عدسات لاصقة — سوق الأربعاء الغرب، المغرب" />
+  <meta name="keywords" content="بصريات البركة, elbaraka vision, opticien, optométriste, نظارات, فحص نظر, سوق الأربعاء الغرب, Morocco" />
+  <meta property="og:title" content="Elbaraka Vision | البصريات البركة" />
+  <meta property="og:description" content="رؤيتكم راحتنا... وثقتكم فخرنا | خدمات بصرية احترافية في سوق الأربعاء الغرب" />
+  <meta property="og:type" content="website" />
+  <title>Elbaraka Vision | البصريات البركة</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Cairo:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <style>
+    /* ============================================================
+       ROOT VARIABLES
+    ============================================================ */
+    :root {
+      --gold:        #C9A028;
+      --gold-light:  #E8C87A;
+      --gold-pale:   #F5EDD0;
+      --gold-dark:   #9A7510;
+      --dark:        #0F0B07;
+      --dark-2:      #1C1408;
+      --dark-card:   rgba(255,255,255,0.04);
+      --white:       #FFFFFF;
+      --off-white:   #FAFAF7;
+      --cream:       #F5F0E8;
+      --text:        #2C2010;
+      --text-light:  #6B5030;
+      --border:      rgba(201,160,40,0.2);
+      --shadow:      0 20px 60px rgba(0,0,0,0.1);
+      --shadow-gold: 0 10px 40px rgba(201,160,40,0.3);
+      --t:           all 0.38s cubic-bezier(.4,0,.2,1);
+      --r:           14px;
+      --r-lg:        24px;
+    }
+
+    /* ============================================================
+       RESET & BASE
+    ============================================================ */
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior:smooth; font-size:16px; }
+
+    body {
+      font-family:'Cairo','Inter',sans-serif;
+      background:var(--off-white);
+      color:var(--text);
+      overflow-x:hidden;
+      direction:rtl;
+    }
+    body.ltr { direction:ltr; font-family:'Inter','Cairo',sans-serif; }
+
+    ::-webkit-scrollbar { width:5px; }
+    ::-webkit-scrollbar-track { background:var(--cream); }
+    ::-webkit-scrollbar-thumb { background:var(--gold); border-radius:3px; }
+
+    a { text-decoration:none; }
+    ul { list-style:none; }
+    img { max-width:100%; display:block; }
+
+    /* ============================================================
+       TYPOGRAPHY HELPERS
+    ============================================================ */
+    .section-tag {
+      display:inline-block;
+      font-size:.72rem; font-weight:700;
+      letter-spacing:3px; text-transform:uppercase;
+      color:var(--gold);
+      background:rgba(201,160,40,.08);
+      border:1px solid rgba(201,160,40,.35);
+      padding:5px 20px; border-radius:50px;
+      margin-bottom:1rem;
+    }
+    .section-title {
+      font-family:'Playfair Display',serif;
+      font-size:clamp(1.9rem,4vw,3rem);
+      color:var(--dark); font-weight:700;
+      line-height:1.25; margin-bottom:.9rem;
+    }
+    .section-subtitle {
+      font-size:1rem; color:var(--text-light);
+      line-height:1.85; max-width:580px;
+    }
+    .gold-text { color:var(--gold); }
+
+    /* ============================================================
+       BUTTONS
+    ============================================================ */
+    .btn {
+      display:inline-flex; align-items:center; gap:9px;
+      padding:13px 30px; border-radius:50px;
+      font-size:.88rem; font-weight:700; cursor:pointer;
+      transition:var(--t); border:none; letter-spacing:.4px;
+    }
+    .btn-gold {
+      background:linear-gradient(135deg,var(--gold),var(--gold-dark));
+      color:#fff;
+      box-shadow:0 6px 25px rgba(201,160,40,.45);
+    }
+    .btn-gold:hover { transform:translateY(-3px); box-shadow:0 14px 35px rgba(201,160,40,.55); }
+    .btn-outline {
+      background:transparent; color:#fff;
+      border:1.5px solid rgba(255,255,255,.55);
+    }
+    .btn-outline:hover { background:rgba(255,255,255,.1); border-color:#fff; }
+
+    /* ============================================================
+       LAYOUT
+    ============================================================ */
+    .container { max-width:1200px; margin:0 auto; padding:0 24px; }
+
+    /* ============================================================
+       NAVIGATION
+    ============================================================ */
+    #navbar {
+      position:fixed; top:0; left:0; right:0; z-index:1000;
+      padding:20px 0; transition:var(--t);
+    }
+    #navbar.scrolled {
+      background:rgba(15,11,7,.96);
+      backdrop-filter:blur(20px);
+      padding:12px 0;
+      box-shadow:0 4px 30px rgba(0,0,0,.4);
+    }
+    .nav-container {
+      max-width:1200px; margin:0 auto; padding:0 24px;
+      display:flex; align-items:center; justify-content:space-between;
+    }
+    .nav-logo { display:flex; align-items:center; gap:12px; }
+    .nav-logo-svg { width:46px; height:46px; }
+    .nav-logo-text { display:flex; flex-direction:column; }
+    .nav-logo-name {
+      font-family:'Playfair Display',serif;
+      font-size:1.05rem; font-weight:700; color:var(--gold); line-height:1.2;
+    }
+    .nav-logo-sub {
+      font-size:.6rem; color:rgba(201,160,40,.7);
+      letter-spacing:2.5px; text-transform:uppercase;
+    }
+    .nav-links { display:flex; align-items:center; gap:4px; }
+    .nav-links a {
+      color:rgba(255,255,255,.8); font-size:.86rem; font-weight:500;
+      padding:8px 15px; border-radius:6px; transition:var(--t);
+      position:relative;
+    }
+    .nav-links a::after {
+      content:''; position:absolute; bottom:4px;
+      left:15px; right:15px; height:1.5px;
+      background:var(--gold);
+      transform:scaleX(0); transition:var(--t);
+    }
+    .nav-links a:hover { color:var(--gold); }
+    .nav-links a:hover::after { transform:scaleX(1); }
+    .lang-btn {
+      background:rgba(201,160,40,.12);
+      border:1px solid rgba(201,160,40,.4);
+      color:var(--gold); padding:6px 16px;
+      border-radius:50px; font-size:.75rem; font-weight:700;
+      cursor:pointer; transition:var(--t); letter-spacing:1px;
+    }
+    .lang-btn:hover { background:var(--gold); color:#fff; }
+    .hamburger {
+      display:none; flex-direction:column; gap:5px;
+      cursor:pointer; padding:8px;
+    }
+    .hamburger span {
+      display:block; width:24px; height:2px;
+      background:#fff; border-radius:2px; transition:var(--t);
+    }
+
+    /* Mobile menu */
+    #mobile-menu {
+      display:none; position:fixed; inset:0;
+      background:var(--dark); z-index:999;
+      flex-direction:column; align-items:center; justify-content:center;
+      gap:28px;
+    }
+    #mobile-menu.open { display:flex; }
+    #mobile-menu a {
+      color:#fff; font-size:1.4rem; font-weight:600; transition:var(--t);
+    }
+    #mobile-menu a:hover { color:var(--gold); }
+    .mob-close {
+      position:absolute; top:24px; left:24px;
+      background:none; border:none; color:#fff;
+      font-size:1.5rem; cursor:pointer;
+    }
+    body.ltr .mob-close { left:auto; right:24px; }
+
+    /* ============================================================
+       HERO
+    ============================================================ */
+    #hero {
+      min-height:100vh; display:flex; align-items:center;
+      justify-content:center; position:relative; overflow:hidden;
+      background:#080502;
+    }
+    .hero-bg {
+      position:absolute; inset:0;
+      background:
+        radial-gradient(ellipse at 25% 35%, rgba(201,160,40,.26) 0%, transparent 48%),
+        radial-gradient(ellipse at 75% 65%, rgba(201,160,40,.14) 0%, transparent 42%),
+        radial-gradient(ellipse at 50% 110%, rgba(201,160,40,.12) 0%, transparent 38%),
+        linear-gradient(160deg,#060401 0%,#150E04 45%,#060401 100%);
+    }
+    /* Dramatic light rays */
+    .hero-rays {
+      position:absolute; inset:0; overflow:hidden; pointer-events:none;
+    }
+    .hero-rays::before {
+      content:''; position:absolute;
+      top:-60%; left:22%; width:1px; height:220%;
+      background:linear-gradient(to bottom,transparent 0%,rgba(201,160,40,.18) 40%,rgba(201,160,40,.18) 60%,transparent 100%);
+      transform:rotate(-28deg);
+      animation:rayPulse 7s ease-in-out infinite;
+    }
+    .hero-rays::after {
+      content:''; position:absolute;
+      top:-60%; left:58%; width:1px; height:220%;
+      background:linear-gradient(to bottom,transparent 0%,rgba(201,160,40,.1) 35%,rgba(201,160,40,.1) 65%,transparent 100%);
+      transform:rotate(-22deg);
+      animation:rayPulse 9s ease-in-out infinite reverse;
+    }
+    @keyframes rayPulse {
+      0%,100% { opacity:.5; } 50% { opacity:1; }
+    }
+    /* Large background glasses decoration */
+    .hero-deco {
+      position:absolute; inset:0; display:flex;
+      align-items:center; justify-content:center; pointer-events:none;
+    }
+    .hero-deco svg { width:min(88vw,920px); opacity:1; }
+
+    /* Particles */
+    .particles { position:absolute; inset:0; pointer-events:none; }
+    .p {
+      position:absolute; background:var(--gold); border-radius:50%;
+      animation:fp var(--d,8s) var(--del,0s) infinite ease-in-out; opacity:.3;
+    }
+    @keyframes fp {
+      0%,100% { transform:translateY(0) scale(1); opacity:.3; }
+      50%      { transform:translateY(-30px) scale(1.8); opacity:.7; }
+    }
+
+    /* Hero content */
+    .hero-content {
+      position:relative; z-index:2; text-align:center;
+      max-width:1050px; padding:0 24px;
+    }
+    /* Top accent line */
+    .hero-eyeline {
+      display:flex; align-items:center; justify-content:center; gap:18px;
+      margin-bottom:2.2rem; animation:fadeIn 1s .1s ease both;
+    }
+    .hero-eyeline-bar {
+      height:1px; width:55px;
+      background:linear-gradient(90deg,transparent,var(--gold));
+    }
+    .hero-eyeline-bar.r { background:linear-gradient(90deg,var(--gold),transparent); }
+    .hero-eyeline-text {
+      font-size:.65rem; font-weight:700; letter-spacing:5px;
+      text-transform:uppercase; color:var(--gold);
+    }
+    /* Main brand name — luxury fashion style */
+    .hero-name-wrap { overflow:hidden; }
+    .hero-name-1 {
+      font-family:'Playfair Display',serif;
+      font-size:clamp(3.2rem,9.5vw,9rem);
+      color:#fff; font-weight:700;
+      letter-spacing:.22em; line-height:.95;
+      display:block;
+      animation:slideUp 1.1s .2s cubic-bezier(.16,1,.3,1) both;
+    }
+    .hero-name-2 {
+      font-family:'Playfair Display',serif;
+      font-size:clamp(1.8rem,5.5vw,5.2rem);
+      color:var(--gold); font-weight:400;
+      letter-spacing:.6em; line-height:1.1;
+      display:block;
+      animation:slideUp 1.1s .38s cubic-bezier(.16,1,.3,1) both;
+    }
+    @keyframes slideUp {
+      from { transform:translateY(110%); opacity:0; }
+      to   { transform:translateY(0);    opacity:1; }
+    }
+    /* Gold divider ornament */
+    .hero-divider {
+      display:flex; align-items:center; justify-content:center;
+      gap:16px; margin:1.8rem 0;
+      animation:fadeIn 1s .55s ease both;
+    }
+    .hero-divider-line {
+      height:1px; width:80px;
+      background:linear-gradient(90deg,transparent,rgba(201,160,40,.75));
+    }
+    .hero-divider-line.r { background:linear-gradient(90deg,rgba(201,160,40,.75),transparent); }
+    .hero-divider i { color:var(--gold); font-size:.8rem; }
+    /* Slogan */
+    .hero-slogan {
+      font-size:clamp(.95rem,2.2vw,1.28rem);
+      color:rgba(255,255,255,.65); margin-bottom:3rem;
+      line-height:2.1; animation:fadeInUp 1s .7s ease both;
+    }
+    .hero-slogan em { color:var(--gold-light); font-style:normal; }
+    .hero-actions {
+      display:flex; gap:16px; justify-content:center;
+      flex-wrap:wrap; animation:fadeInUp 1s .85s ease both;
+    }
+    /* Scroll indicator */
+    .hero-scroll {
+      position:absolute; bottom:36px; left:50%; transform:translateX(-50%);
+      display:flex; flex-direction:column; align-items:center; gap:7px;
+      color:rgba(255,255,255,.38); font-size:.68rem; letter-spacing:2.5px;
+      animation:scrollBounce 2.2s infinite;
+    }
+    .hero-scroll i { color:var(--gold); font-size:.8rem; }
+    @keyframes scrollBounce {
+      0%,100% { transform:translateX(-50%) translateY(0); }
+      50%      { transform:translateX(-50%) translateY(10px); }
+    }
+
+    /* ============================================================
+       ABOUT
+    ============================================================ */
+    #about { padding:110px 0; background:var(--off-white); }
+    .about-grid {
+      display:grid; grid-template-columns:1fr 1fr;
+      gap:80px; align-items:center;
+    }
+    .about-visual { position:relative; }
+    .about-frame {
+      width:100%; aspect-ratio:4/5;
+      border-radius:var(--r-lg);
+      position:relative; overflow:hidden;
+      box-shadow:0 30px 80px rgba(0,0,0,.18);
+    }
+    .about-frame::before {
+      content:''; position:absolute; inset:0; z-index:1; pointer-events:none;
+      background:linear-gradient(to top, rgba(201,160,40,.18) 0%, transparent 45%);
+    }
+    .about-real-img {
+      width:100%; height:100%; object-fit:cover; display:block;
+      transition:transform .7s ease;
+    }
+    .about-frame:hover .about-real-img { transform:scale(1.04); }
+    .about-frame-border {
+      position:absolute; inset:0; border-radius:var(--r-lg);
+      border:2px solid rgba(201,160,40,.35);
+      pointer-events:none; z-index:2;
+    }
+    .about-badge-pill {
+      position:absolute; bottom:-18px; right:-18px;
+      width:118px; height:118px; background:var(--gold);
+      border-radius:50%; display:flex; flex-direction:column;
+      align-items:center; justify-content:center;
+      box-shadow:var(--shadow-gold); z-index:3;
+    }
+    body.ltr .about-badge-pill { right:auto; left:-18px; }
+    .badge-num {
+      font-size:2.2rem; font-weight:800; color:#fff; line-height:1;
+    }
+    .badge-label {
+      font-size:.62rem; color:rgba(255,255,255,.85);
+      text-align:center; line-height:1.4; padding:0 10px;
+    }
+    .about-content { padding:10px 0; }
+    .about-text {
+      font-size:.98rem; color:var(--text-light);
+      line-height:1.9; margin:1.2rem 0 2rem;
+    }
+    .about-stats {
+      display:grid; grid-template-columns:repeat(3,1fr);
+      gap:20px; margin-top:36px;
+    }
+    .stat-card {
+      text-align:center; padding:22px 14px;
+      background:#fff; border-radius:var(--r);
+      border:1px solid var(--border); transition:var(--t);
+    }
+    .stat-card:hover {
+      border-color:var(--gold);
+      box-shadow:var(--shadow-gold);
+      transform:translateY(-5px);
+    }
+    .stat-num {
+      font-family:'Playfair Display',serif;
+      font-size:2rem; font-weight:700;
+      color:var(--gold); line-height:1; margin-bottom:4px;
+    }
+    .stat-lbl { font-size:.78rem; color:var(--text-light); }
+
+    /* ============================================================
+       SERVICES
+    ============================================================ */
+    #services {
+      padding:110px 0; background:var(--dark); position:relative; overflow:hidden;
+    }
+    #services::before {
+      content:''; position:absolute; inset:0;
+      background:radial-gradient(ellipse at 5% 50%,rgba(201,160,40,.1) 0%,transparent 55%);
+    }
+    .srv-header { text-align:center; margin-bottom:60px; }
+    .srv-header .section-title { color:#fff; }
+    .srv-header .section-tag { color:var(--gold-light); background:rgba(201,160,40,.1); }
+    .srv-header .section-subtitle { color:rgba(255,255,255,.55); margin:0 auto; }
+    .services-grid {
+      display:grid; grid-template-columns:repeat(4,1fr); gap:22px;
+    }
+    .service-card {
+      background:var(--dark-card);
+      border:1px solid rgba(201,160,40,.2);
+      border-radius:var(--r-lg); padding:40px 26px;
+      text-align:center; transition:var(--t);
+      position:relative; overflow:hidden; cursor:default;
+    }
+    .service-card::after {
+      content:''; position:absolute; top:0; left:0; right:0;
+      height:3px;
+      background:linear-gradient(90deg,var(--gold),var(--gold-dark));
+      transform:scaleX(0); transition:var(--t);
+    }
+    .service-card:hover {
+      background:rgba(201,160,40,.08);
+      border-color:var(--gold);
+      transform:translateY(-9px);
+      box-shadow:0 24px 55px rgba(0,0,0,.35);
+    }
+    .service-card:hover::after { transform:scaleX(1); }
+    .srv-icon {
+      width:68px; height:68px;
+      background:rgba(201,160,40,.1);
+      border:1px solid rgba(201,160,40,.3);
+      border-radius:50%; display:flex; align-items:center;
+      justify-content:center; margin:0 auto 20px;
+      font-size:1.5rem; color:var(--gold); transition:var(--t);
+    }
+    .service-card:hover .srv-icon {
+      background:var(--gold); color:#fff;
+      border-color:var(--gold);
+      box-shadow:0 8px 28px rgba(201,160,40,.45);
+    }
+    .srv-name {
+      font-size:1rem; font-weight:700; color:#fff; margin-bottom:12px;
+    }
+    .srv-desc { font-size:.83rem; color:rgba(255,255,255,.48); line-height:1.75; }
+
+    /* ============================================================
+       GALLERY
+    ============================================================ */
+    #gallery { padding:110px 0; background:var(--cream); }
+    .gal-header { text-align:center; margin-bottom:56px; }
+    .gallery-grid {
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      grid-auto-rows:240px;
+      gap:14px;
+    }
+    .gal-item {
+      position:relative; border-radius:var(--r);
+      overflow:hidden; cursor:pointer; background:var(--dark);
+    }
+    .gal-item.tall { grid-row:span 2; }
+    .gal-item.wide { grid-column:span 2; }
+    .gal-item img {
+      width:100%; height:100%; object-fit:cover;
+      transition:transform .65s ease;
+    }
+    .gal-overlay {
+      position:absolute; inset:0;
+      background:linear-gradient(to top,rgba(15,11,7,.85) 0%,transparent 50%);
+      opacity:0; transition:var(--t);
+      display:flex; align-items:flex-end; padding:22px;
+    }
+    .gal-item:hover img { transform:scale(1.08); }
+    .gal-item:hover .gal-overlay { opacity:1; }
+    .gal-label {
+      color:#fff; font-size:.88rem; font-weight:700;
+      display:flex; align-items:center; gap:8px;
+    }
+    .gal-label::before {
+      content:''; width:20px; height:1.5px; background:var(--gold); flex-shrink:0;
+    }
+
+    /* ============================================================
+       CONTACT
+    ============================================================ */
+    #contact { padding:110px 0; background:var(--off-white); }
+    .contact-header { text-align:center; margin-bottom:56px; }
+    .contact-grid {
+      display:grid; grid-template-columns:1fr 1fr;
+      gap:60px; align-items:start;
+    }
+    .contact-info { display:flex; flex-direction:column; gap:18px; }
+    .c-card {
+      display:flex; align-items:flex-start; gap:16px;
+      padding:22px 20px; background:#fff;
+      border-radius:var(--r); border:1px solid var(--border);
+      transition:var(--t); color:inherit;
+    }
+    .c-card:hover {
+      border-color:var(--gold);
+      box-shadow:var(--shadow-gold);
+      transform:translateX(-5px);
+    }
+    body.ltr .c-card:hover { transform:translateX(5px); }
+    .c-icon {
+      width:46px; height:46px; background:var(--gold-pale);
+      border-radius:11px; display:flex; align-items:center;
+      justify-content:center; font-size:1.15rem; color:var(--gold);
+      flex-shrink:0;
+    }
+    .c-card h4 {
+      font-size:.72rem; font-weight:700; color:var(--text-light);
+      text-transform:uppercase; letter-spacing:1.2px; margin-bottom:4px;
+    }
+    .c-card p, .c-card span {
+      font-size:.92rem; color:var(--text); line-height:1.65;
+    }
+    .wa-btn {
+      display:inline-flex; align-items:center; gap:10px;
+      background:#25D366; color:#fff; padding:13px 26px;
+      border-radius:50px; font-size:.88rem; font-weight:700;
+      transition:var(--t);
+      box-shadow:0 6px 22px rgba(37,211,102,.42);
+      margin-top:6px;
+    }
+    .wa-btn:hover {
+      background:#1EBF5C; transform:translateY(-3px);
+      box-shadow:0 12px 32px rgba(37,211,102,.5);
+    }
+    .social-row { display:flex; gap:12px; margin-top:6px; }
+    .soc-link {
+      width:42px; height:42px; border-radius:50%;
+      display:flex; align-items:center; justify-content:center;
+      font-size:.95rem; border:1.5px solid var(--border);
+      color:var(--text-light); transition:var(--t);
+    }
+    .soc-link:hover {
+      background:var(--gold); color:#fff;
+      border-color:var(--gold); transform:translateY(-4px);
+      box-shadow:var(--shadow-gold);
+    }
+    .map-wrap {
+      border-radius:var(--r-lg); overflow:hidden;
+      box-shadow:var(--shadow); border:3px solid #fff;
+    }
+    .map-wrap iframe { width:100%; height:450px; border:none; display:block; }
+
+    /* ============================================================
+       FLOATING WHATSAPP
+    ============================================================ */
+    .float-wa {
+      position:fixed; bottom:30px; left:30px; z-index:900;
+      width:60px; height:60px; background:#25D366; border-radius:50%;
+      display:flex; align-items:center; justify-content:center;
+      font-size:1.85rem; color:#fff;
+      box-shadow:0 8px 30px rgba(37,211,102,.55);
+      transition:var(--t); animation:waPulse 2.5s infinite;
+    }
+    body.ltr .float-wa { left:auto; right:30px; }
+    .float-wa:hover { transform:scale(1.12) translateY(-4px); }
+    .float-wa-tip {
+      position:absolute; right:68px; background:#fff;
+      color:var(--text); font-size:.78rem; font-weight:700;
+      padding:7px 15px; border-radius:50px; white-space:nowrap;
+      box-shadow:var(--shadow); opacity:0; transition:var(--t);
+      pointer-events:none;
+    }
+    body.ltr .float-wa-tip { right:auto; left:68px; }
+    .float-wa:hover .float-wa-tip { opacity:1; }
+    @keyframes waPulse {
+      0%,100% { box-shadow:0 8px 30px rgba(37,211,102,.55); }
+      50%      { box-shadow:0 8px 40px rgba(37,211,102,.8), 0 0 0 12px rgba(37,211,102,.1); }
+    }
+
+    /* Back to top */
+    #btt {
+      position:fixed; bottom:30px; right:30px; z-index:900;
+      width:46px; height:46px; background:var(--gold); border:none;
+      border-radius:50%; color:#fff; font-size:.95rem; cursor:pointer;
+      opacity:0; pointer-events:none; transition:var(--t);
+      box-shadow:var(--shadow-gold); display:flex;
+      align-items:center; justify-content:center;
+    }
+    body.ltr #btt { right:auto; left:30px; }
+    #btt.show { opacity:1; pointer-events:auto; }
+    #btt:hover { background:var(--gold-dark); transform:translateY(-4px); }
+
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+    footer { background:var(--dark); padding:70px 0 30px; }
+    .footer-grid {
+      display:grid; grid-template-columns:2fr 1fr 1fr;
+      gap:60px; margin-bottom:50px;
+    }
+    .footer-brand p {
+      font-size:.85rem; color:rgba(255,255,255,.45);
+      line-height:1.85; max-width:270px; margin-top:14px;
+    }
+    .footer-social { display:flex; gap:12px; margin-top:20px; }
+    .footer-social .soc-link {
+      background:rgba(255,255,255,.05);
+      border-color:rgba(255,255,255,.1);
+      color:rgba(255,255,255,.55);
+    }
+    .footer-col h4 {
+      font-size:.78rem; font-weight:700; color:var(--gold);
+      letter-spacing:2.5px; text-transform:uppercase; margin-bottom:20px;
+    }
+    .footer-links { display:flex; flex-direction:column; gap:10px; }
+    .footer-links a {
+      color:rgba(255,255,255,.48); font-size:.85rem; transition:var(--t);
+    }
+    .footer-links a:hover { color:var(--gold); padding-right:8px; }
+    body.ltr .footer-links a:hover { padding-right:0; padding-left:8px; }
+    .footer-bottom {
+      border-top:1px solid rgba(255,255,255,.08);
+      padding-top:28px; display:flex; align-items:center;
+      justify-content:space-between; flex-wrap:wrap; gap:12px;
+    }
+    .footer-copy {
+      font-size:.78rem; color:rgba(255,255,255,.38);
+    }
+    .footer-copy span { color:var(--gold); }
+
+    /* ============================================================
+       ANIMATIONS
+    ============================================================ */
+    @keyframes fadeIn {
+      from { opacity:0; } to { opacity:1; }
+    }
+    @keyframes fadeInUp {
+      from { opacity:0; transform:translateY(28px); }
+      to   { opacity:1; transform:translateY(0); }
+    }
+    @keyframes fadeInDown {
+      from { opacity:0; transform:translateY(-28px); }
+      to   { opacity:1; transform:translateY(0); }
+    }
+
+    .reveal {
+      opacity:0; transform:translateY(32px);
+      transition:opacity .7s ease, transform .7s ease;
+    }
+    .reveal.shown { opacity:1; transform:translateY(0); }
+    .reveal-l {
+      opacity:0; transform:translateX(-32px);
+      transition:opacity .7s ease, transform .7s ease;
+    }
+    .reveal-l.shown { opacity:1; transform:translateX(0); }
+    .reveal-r {
+      opacity:0; transform:translateX(32px);
+      transition:opacity .7s ease, transform .7s ease;
+    }
+    .reveal-r.shown { opacity:1; transform:translateX(0); }
+
+    .d1 { transition-delay:.1s; }
+    .d2 { transition-delay:.2s; }
+    .d3 { transition-delay:.3s; }
+    .d4 { transition-delay:.4s; }
+
+    /* ============================================================
+       DIVIDER ORNAMENT
+    ============================================================ */
+    .ornament {
+      display:flex; align-items:center; justify-content:center;
+      gap:14px; margin:16px 0 28px;
+    }
+    .ornament-line {
+      height:1px; width:60px; background:linear-gradient(90deg,transparent,var(--gold));
+    }
+    .ornament-line.r { background:linear-gradient(90deg,var(--gold),transparent); }
+    .ornament i { color:var(--gold); font-size:.7rem; }
+
+    /* ============================================================
+       RESPONSIVE
+    ============================================================ */
+    @media (max-width:1024px) {
+      .services-grid { grid-template-columns:repeat(2,1fr); }
+      .footer-grid { grid-template-columns:1fr 1fr; gap:40px; }
+    }
+    @media (max-width:768px) {
+      .nav-links,.lang-btn { display:none; }
+      .hamburger { display:flex; }
+      .about-grid { grid-template-columns:1fr; gap:40px; }
+      .contact-grid { grid-template-columns:1fr; }
+      .gallery-grid { grid-template-columns:1fr 1fr; grid-auto-rows:200px; }
+      .gal-item.tall { grid-row:span 1; }
+      .footer-grid { grid-template-columns:1fr; gap:30px; }
+      .mob-lang { display:block !important; }
+    }
+    @media (max-width:520px) {
+      .services-grid { grid-template-columns:1fr; }
+      .gallery-grid { grid-template-columns:1fr; grid-auto-rows:240px; }
+      .about-stats { grid-template-columns:1fr; }
+      .hero-actions { flex-direction:column; align-items:center; }
+    }
+
+    /* Language data attrs */
+    [data-en] { display:none; }
+    body.ltr [data-ar] { display:none !important; }
+    body.ltr [data-en] { display:revert !important; }
+
+    /* ensure spans work */
+    span[data-en] { display:none; }
+    body.ltr span[data-en] { display:inline !important; }
+    span[data-ar] { display:inline; }
+    body.ltr span[data-ar] { display:none !important; }
+
+    .mob-lang { display:none; }
+    /* Arabic-only — no lang toggle */
+    .lang-btn { display:none !important; }
+  </style>
 </head>
+
 <body>
 
-<!-- ===== NAVBAR ===== -->
-<nav class="navbar" id="navbar">
-    <div class="nav-container">
-        <a href="#hero" class="nav-logo">
-            <i class="fas fa-glasses"></i>
-            <span>Optique Tamsena</span>
-        </a>
-        <div class="nav-menu" id="navMenu">
-            <a href="#services" class="nav-link" data-fr="Services" data-ar="الخدمات">Services</a>
-            <a href="#galerie" class="nav-link" data-fr="Galerie" data-ar="المعرض">Galerie</a>
-            <a href="#rendez-vous" class="nav-link" data-fr="Rendez-vous" data-ar="موعد">Rendez-vous</a>
-            <a href="#localisation" class="nav-link" data-fr="Localisation" data-ar="الموقع">Localisation</a>
-            <a href="#contact" class="nav-link" data-fr="Contact" data-ar="تواصل">Contact</a>
-        </div>
-        <div class="nav-actions">
-            <button class="lang-toggle" id="langToggle" onclick="toggleLanguage()">
-                <span id="langLabel">عربي</span>
-            </button>
-            <a href="https://wa.me/212666849903?text=Bonjour%20Optique%20Tamsena%20%F0%9F%91%93%0A%0AJe%20souhaite%20obtenir%20des%20informations%20sur%20vos%20services%20et%20tarifs."
-               class="btn-wa-nav" target="_blank">
-                <i class="fab fa-whatsapp"></i>
-                <span data-fr="WhatsApp" data-ar="واتساب">WhatsApp</span>
-            </a>
-            <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
-                <span></span><span></span><span></span>
-            </button>
-        </div>
+<!-- ============================================================
+     LOGO SVG (reusable via <use> — defined here, hidden)
+============================================================ -->
+<svg style="display:none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="gGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#F0D060"/>
+      <stop offset="45%"  stop-color="#C9A028"/>
+      <stop offset="100%" stop-color="#9A7510"/>
+    </linearGradient>
+    <!-- Paths for curved text -->
+    <path id="topArc"    d="M 22,100 A 78,78 0 0,1 178,100"/>
+    <path id="bottomArc" d="M 28,112 A 75,75 0 0,0 172,112"/>
+  </defs>
+</svg>
+
+<!-- ============================================================
+     NAVIGATION
+============================================================ -->
+<nav id="navbar">
+  <div class="nav-container">
+    <!-- Logo -->
+    <a href="#hero" class="nav-logo">
+      <svg class="nav-logo-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="ngold" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%"   stop-color="#F0D060"/>
+            <stop offset="50%"  stop-color="#C9A028"/>
+            <stop offset="100%" stop-color="#9A7510"/>
+          </linearGradient>
+          <path id="nTop"    d="M 22,100 A 78,78 0 0,1 178,100"/>
+          <path id="nBottom" d="M 28,112 A 75,75 0 0,0 172,112"/>
+        </defs>
+        <circle cx="100" cy="100" r="97" fill="url(#ngold)"/>
+        <circle cx="100" cy="100" r="91" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.2"/>
+        <circle cx="100" cy="100" r="84" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width=".8" stroke-dasharray="3 2.5"/>
+        <!-- Glasses -->
+        <ellipse cx="74"  cy="108" rx="24" ry="19" fill="rgba(255,255,255,.12)" stroke="white" stroke-width="3.5"/>
+        <ellipse cx="126" cy="108" rx="24" ry="19" fill="rgba(255,255,255,.12)" stroke="white" stroke-width="3.5"/>
+        <path d="M 98,105 Q 100,101 102,105" fill="none" stroke="white" stroke-width="3.5"/>
+        <path d="M 50,100 L 34,96" fill="none" stroke="white" stroke-width="3.2" stroke-linecap="round"/>
+        <path d="M 150,100 L 166,96" fill="none" stroke="white" stroke-width="3.2" stroke-linecap="round"/>
+        <!-- EV -->
+        <text x="100" y="115" font-family="Georgia,'Times New Roman',serif" font-size="15" font-weight="bold" fill="white" text-anchor="middle" letter-spacing="1">EV</text>
+        <!-- Top text -->
+        <text font-family="Arial,sans-serif" font-size="8.5" fill="white" font-weight="600" letter-spacing="2">
+          <textPath href="#nTop" startOffset="8%">OPTICIEN · OPTOMÉTRISTE</textPath>
+        </text>
+        <!-- Bottom text -->
+        <text font-family="Arial,sans-serif" font-size="9" fill="white" font-weight="600" letter-spacing="1.5">
+          <textPath href="#nBottom" startOffset="13%">El Baraka Vision</textPath>
+        </text>
+        <!-- Stars -->
+        <text x="24" y="108" font-size="10" fill="rgba(255,255,255,.8)" text-anchor="middle">✦</text>
+        <text x="176" y="108" font-size="10" fill="rgba(255,255,255,.8)" text-anchor="middle">✦</text>
+      </svg>
+      <div class="nav-logo-text">
+        <span class="nav-logo-name">Elbaraka Vision</span>
+        <span class="nav-logo-sub">Opticien · Optométriste</span>
+      </div>
+    </a>
+
+    <!-- Links -->
+    <ul class="nav-links">
+      <li><a href="#hero">الرئيسية</a></li>
+      <li><a href="#about">من نحن</a></li>
+      <li><a href="#services">خدماتنا</a></li>
+      <li><a href="#gallery">معرضنا</a></li>
+      <li><a href="#contact">اتصل بنا</a></li>
+    </ul>
+
+    <div style="display:flex;align-items:center;gap:12px;">
+      <button class="hamburger" onclick="openMenu()" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
+  </div>
 </nav>
 
-<!-- ===== HERO ===== -->
-<section id="hero" class="hero">
-
-    <!-- Particules décoratives -->
-    <div class="hero-particles">
-        <span></span><span></span><span></span>
-        <span></span><span></span><span></span>
-    </div>
-
-    <div class="hero-inner">
-
-        <!-- GAUCHE : Texte -->
-        <div class="hero-text">
-            <div class="hero-badge" data-fr="⭐ Votre Opticien de Confiance à Tamsena" data-ar="⭐ بصريك الموثوق في تامسنا">
-                ⭐ Votre Opticien de Confiance à Tamsena
-            </div>
-            <h1 class="hero-title">
-                <span data-fr="Votre Vision, " data-ar="بصرك، ">Votre Vision, </span><span class="accent-text" data-fr="Notre Passion" data-ar="شغفنا">Notre Passion</span>
-            </h1>
-            <p class="hero-subtitle" data-fr="Spécialistes en lunettes médicales, lunettes de soleil, lentilles de contact et prothèses oculaires — Qualité premium, prix accessibles." data-ar="متخصصون في النظارات الطبية، نظارات الشمس، العدسات اللاصقة والعيون الاصطناعية — جودة عالية، أسعار في المتناول.">
-                Spécialistes en lunettes médicales, lunettes de soleil, lentilles de contact et prothèses oculaires — Qualité premium, prix accessibles.
-            </p>
-            <div class="hero-cta">
-                <a href="#rendez-vous" class="btn-primary">
-                    <i class="fas fa-calendar-check"></i>
-                    <span data-fr="Prendre Rendez-vous" data-ar="احجز موعد">Prendre Rendez-vous</span>
-                </a>
-                <a href="https://wa.me/212666849903?text=Bonjour%20Optique%20Tamsena%20%F0%9F%91%93%0A%0AJe%20souhaite%20obtenir%20des%20informations%20sur%20vos%20services%20et%20tarifs."
-                   class="btn-ghost" target="_blank">
-                    <i class="fab fa-whatsapp"></i>
-                    <span data-fr="Nous Contacter" data-ar="تواصل معنا">Nous Contacter</span>
-                </a>
-            </div>
-            <div class="hero-stats">
-                <div class="stat-item">
-                    <span class="stat-n">500+</span>
-                    <span class="stat-l" data-fr="Clients Satisfaits" data-ar="عميل راضٍ">Clients Satisfaits</span>
-                </div>
-                <div class="stat-divider"></div>
-                <div class="stat-item">
-                    <span class="stat-n">4</span>
-                    <span class="stat-l" data-fr="Services Experts" data-ar="خدمات متخصصة">Services Experts</span>
-                </div>
-                <div class="stat-divider"></div>
-                <div class="stat-item">
-                    <span class="stat-n">100%</span>
-                    <span class="stat-l" data-fr="Satisfaction" data-ar="رضا العملاء">Satisfaction</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- DROITE : Photo professionnelle -->
-        <div class="hero-photo-col">
-            <!-- Cercles décoratifs -->
-            <div class="hpc-ring hpc-ring-1"></div>
-            <div class="hpc-ring hpc-ring-2"></div>
-
-            <!-- VIDEO CARD — fo9 sura -->
-            <div class="hero-video-card" onclick="openVideoModal()" title="Regarder la vidéo">
-                <div class="hvc-thumb">
-                    <video src="videos/video1.mp4" muted preload="metadata" class="hvc-preview"></video>
-                    <div class="hvc-play-btn">
-                        <i class="fas fa-play"></i>
-                    </div>
-                </div>
-                <div class="hvc-info">
-                    <strong data-fr="Notre Expertise" data-ar="خبرتنا">Notre Expertise</strong>
-                    <small data-fr="▶ Regarder la vidéo" data-ar="▶ شاهد الفيديو">▶ Regarder la vidéo</small>
-                </div>
-            </div>
-
-            <!-- Cadre photo -->
-            <div class="hero-photo-frame">
-                <img src="images/photo1.jpeg"
-                     alt="Expert opticien Optique Tamsena"
-                     class="hero-photo-img">
-                <!-- Gradient bas pour qualité visuelle -->
-                <div class="hero-photo-gradient"></div>
-                <!-- Badge expert sur la photo -->
-                <div class="hero-photo-tag">
-                    <i class="fas fa-user-doctor"></i>
-                    <span data-fr="Expert Certifié" data-ar="خبير معتمد">Expert Certifié</span>
-                </div>
-            </div>
-
-            <!-- Badge BB GR flottant -->
-            <div class="hero-badge-float">
-                <i class="fas fa-award"></i>
-                <div>
-                    <strong>BB GR</strong>
-                    <small data-fr="Certifié" data-ar="معتمد">Certifié</small>
-                </div>
-            </div>
-
-            <!-- Stat flottante -->
-            <div class="hero-stat-float">
-                <span class="stat-n">10+</span>
-                <span data-fr="ans d'expérience" data-ar="سنوات خبرة">ans d'expérience</span>
-            </div>
-
-
-        </div>
-
-    </div>
-
-    <div class="hero-wave">
-        <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
-            <path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="#ffffff"/>
-        </svg>
-    </div>
-</section>
-
-<!-- ===== SERVICES ===== -->
-<section id="services" class="section services">
-    <div class="container">
-        <div class="section-header">
-            <span class="section-tag" data-fr="Ce que nous faisons" data-ar="ما نقدمه">Ce que nous faisons</span>
-            <h2 data-fr="Nos Services" data-ar="خدماتنا">Nos Services</h2>
-            <p data-fr="Une gamme complète de soins optiques professionnels pour toute la famille." data-ar="مجموعة كاملة من الخدمات البصرية المتخصصة لكل أفراد العائلة.">Une gamme complète de soins optiques professionnels pour toute la famille.</p>
-        </div>
-        <div class="services-grid">
-            <div class="service-card reveal">
-                <div class="service-icon-wrap">
-                    <i class="fas fa-glasses"></i>
-                </div>
-                <h3 data-fr="Opticien" data-ar="بصري">Opticien</h3>
-                <p data-fr="Large choix de montures et verres correcteurs pour tous les âges et tous les styles. Marques nationales et internationales." data-ar="مجموعة واسعة من الإطارات والعدسات لجميع الأعمار والأذواق. ماركات وطنية وعالمية.">Large choix de montures et verres correcteurs pour tous les âges et tous les styles. Marques nationales et internationales.</p>
-                <div class="service-cta">
-                    <a href="#rendez-vous" data-fr="Prendre RDV →" data-ar="احجز موعد →">Prendre RDV →</a>
-                </div>
-            </div>
-            <div class="service-card reveal">
-                <div class="service-icon-wrap">
-                    <i class="fas fa-eye"></i>
-                </div>
-                <h3 data-fr="Optométriste" data-ar="قياس البصر">Optométriste</h3>
-                <p data-fr="Examen de vue complet et précis avec équipements modernes. Détection et correction de tous les défauts visuels." data-ar="فحص بصري شامل ودقيق بأجهزة حديثة. كشف وتصحيح جميع عيوب الرؤية.">Examen de vue complet et précis avec équipements modernes. Détection et correction de tous les défauts visuels.</p>
-                <div class="service-cta">
-                    <a href="#rendez-vous" data-fr="Prendre RDV →" data-ar="احجز موعد →">Prendre RDV →</a>
-                </div>
-            </div>
-            <div class="service-card reveal">
-                <div class="service-icon-wrap">
-                    <i class="fas fa-circle-dot"></i>
-                </div>
-                <h3 data-fr="Contactologie" data-ar="العدسات اللاصقة">Contactologie</h3>
-                <p data-fr="Adaptation et suivi personnalisé de lentilles de contact journalières, mensuelles ou annuelles. Confort garanti." data-ar="تركيب ومتابعة مخصصة للعدسات اللاصقة اليومية، الشهرية أو السنوية. راحة مضمونة.">Adaptation et suivi personnalisé de lentilles de contact journalières, mensuelles ou annuelles. Confort garanti.</p>
-                <div class="service-cta">
-                    <a href="#rendez-vous" data-fr="Prendre RDV →" data-ar="احجز موعد →">Prendre RDV →</a>
-                </div>
-            </div>
-            <div class="service-card reveal">
-                <div class="service-icon-wrap">
-                    <i class="fas fa-user-doctor"></i>
-                </div>
-                <h3 data-fr="Oculariste" data-ar="أطراف العين">Oculariste</h3>
-                <p data-fr="Confection et adaptation de prothèses oculaires sur mesure avec un suivi médical personnalisé et bienveillant." data-ar="تصنيع وتركيب عيون اصطناعية مخصصة مع متابعة طبية شخصية ورعاية متميزة.">Confection et adaptation de prothèses oculaires sur mesure avec un suivi médical personnalisé et bienveillant.</p>
-                <div class="service-cta">
-                    <a href="#rendez-vous" data-fr="Prendre RDV →" data-ar="احجز موعد →">Prendre RDV →</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ===== POURQUOI NOUS ===== -->
-<section class="section about-section">
-    <div class="container">
-        <div class="about-grid">
-            <div class="about-visual reveal">
-                <div class="about-img-box">
-                    <img src="images/magasin.jpeg" alt="Optique Tamsena - Notre Magasin">
-                </div>
-                <div class="about-float-badge">
-                    <i class="fas fa-award"></i>
-                    <div>
-                        <strong>BB GR</strong>
-                        <span data-fr="Certifié" data-ar="معتمد">Certifié</span>
-                    </div>
-                </div>
-                <div class="about-float-stat">
-                    <strong>10+</strong>
-                    <span data-fr="Années d'expérience" data-ar="سنوات خبرة">Années d'expérience</span>
-                </div>
-            </div>
-            <div class="about-text reveal">
-                <span class="section-tag" data-fr="Pourquoi nous choisir" data-ar="لماذا تختارنا">Pourquoi nous choisir</span>
-                <h2 data-fr="L'Excellence Optique à Tamsena" data-ar="التميز البصري في تامسنا">L'Excellence Optique à Tamsena</h2>
-                <p class="about-intro" data-fr="Chez Optique Tamsena, nous combinons expertise professionnelle, matériel de pointe et service chaleureux pour vous offrir la meilleure expérience optique." data-ar="في أوبتيك تامسنا، نجمع بين الخبرة المهنية، المعدات المتطورة والخدمة الحارة لنمنحك أفضل تجربة بصرية.">
-                    Chez Optique Tamsena, nous combinons expertise professionnelle, matériel de pointe et service chaleureux pour vous offrir la meilleure expérience optique.
-                </p>
-                <div class="features-list">
-                    <div class="feature-item">
-                        <div class="feature-icon"><i class="fas fa-check"></i></div>
-                        <div>
-                            <h4 data-fr="Expertise Certifiée" data-ar="خبرة معتمدة">Expertise Certifiée</h4>
-                            <p data-fr="Équipe qualifiée avec certifications professionnelles reconnues" data-ar="فريق مؤهل بشهادات مهنية معترف بها">Équipe qualifiée avec certifications professionnelles reconnues</p>
-                        </div>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon"><i class="fas fa-check"></i></div>
-                        <div>
-                            <h4 data-fr="Prix Transparents" data-ar="أسعار شفافة">Prix Transparents</h4>
-                            <p data-fr="Meilleur rapport qualité-prix, sans frais cachés" data-ar="أفضل جودة بسعر عادل، بدون رسوم خفية">Meilleur rapport qualité-prix, sans frais cachés</p>
-                        </div>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon"><i class="fas fa-check"></i></div>
-                        <div>
-                            <h4 data-fr="Grandes Marques" data-ar="ماركات عالمية">Grandes Marques</h4>
-                            <p data-fr="Sélection exclusive des meilleures marques mondiales" data-ar="مجموعة مختارة من أفضل الماركات العالمية">Sélection exclusive des meilleures marques mondiales</p>
-                        </div>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon"><i class="fas fa-check"></i></div>
-                        <div>
-                            <h4 data-fr="Service Rapide" data-ar="خدمة سريعة">Service Rapide</h4>
-                            <p data-fr="Livraison express de vos lunettes et lentilles" data-ar="تسليم سريع لنظاراتك وعدساتك">Livraison express de vos lunettes et lentilles</p>
-                        </div>
-                    </div>
-                </div>
-                <a href="#rendez-vous" class="btn-primary inline-btn">
-                    <i class="fas fa-calendar-check"></i>
-                    <span data-fr="Réserver Maintenant" data-ar="احجز الآن">Réserver Maintenant</span>
-                </a>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ===== GALERIE ===== -->
-<section id="galerie" class="section gallery-section">
-    <div class="container">
-        <div class="section-header">
-            <span class="section-tag" data-fr="Nos Collections" data-ar="مجموعاتنا">Nos Collections</span>
-            <h2 data-fr="Notre Galerie" data-ar="معرضنا">Notre Galerie</h2>
-            <p data-fr="Découvrez notre sélection de lunettes médicales, solaires et lentilles." data-ar="اكتشف مجموعتنا من النظارات الطبية، الشمسية والعدسات.">Découvrez notre sélection de lunettes médicales, solaires et lentilles.</p>
-        </div>
-        <div class="gallery-filters">
-            <button class="filter-btn active" onclick="filterGallery(this,'all')" data-fr="Tout" data-ar="الكل">Tout</button>
-            <button class="filter-btn" onclick="filterGallery(this,'medical')" data-fr="Lunettes Médicales" data-ar="نظارات طبية">Lunettes Médicales</button>
-            <button class="filter-btn" onclick="filterGallery(this,'soleil')" data-fr="Lunettes de Soleil" data-ar="نظارات شمس">Lunettes de Soleil</button>
-            <button class="filter-btn" onclick="filterGallery(this,'lentilles')" data-fr="Lentilles" data-ar="عدسات">Lentilles</button>
-            <button class="filter-btn" onclick="filterGallery(this,'video')" data-fr="Vidéos" data-ar="فيديوهات">Vidéos</button>
-        </div>
-        <div class="gallery-grid">
-
-            <div class="gal-item reveal" data-cat="all medical">
-                <img src="images/photo2.jpeg" alt="Optique Tamsena - Collection lunettes">
-                <div class="gal-overlay"><i class="fas fa-search-plus"></i></div>
-            </div>
-
-            <div class="gal-item reveal" data-cat="all medical">
-                <img src="images/photo3.jpeg" alt="Optique Tamsena - Lunettes médicales">
-                <div class="gal-overlay"><i class="fas fa-search-plus"></i></div>
-            </div>
-
-            <div class="gal-item reveal" data-cat="all soleil">
-                <img src="images/photo4.jpeg" alt="Optique Tamsena - Lunettes de soleil">
-                <div class="gal-overlay"><i class="fas fa-search-plus"></i></div>
-            </div>
-
-            <div class="gal-item reveal" data-cat="all medical">
-                <img src="images/photo5.jpeg" alt="Optique Tamsena - Collection montures">
-                <div class="gal-overlay"><i class="fas fa-search-plus"></i></div>
-            </div>
-
-            <div class="gal-item reveal" data-cat="all soleil">
-                <img src="images/photo6.jpeg" alt="Optique Tamsena - Lunettes soleil collection">
-                <div class="gal-overlay"><i class="fas fa-search-plus"></i></div>
-            </div>
-
-            <div class="gal-item gal-video reveal" data-cat="all video">
-                <video src="videos/video1.mp4" muted loop playsinline preload="metadata"></video>
-                <div class="gal-overlay vid-overlay"><i class="fas fa-play"></i></div>
-            </div>
-
-            </div>
-        </div>
-        <div class="gallery-cta">
-            <a href="https://www.instagram.com/optique_tamesna?igsh=b3pxdjZ1YXo3bmQz" target="_blank" class="btn-outline">
-                <i class="fab fa-instagram"></i>
-                <span data-fr="Voir plus sur Instagram" data-ar="شاهد المزيد على إنستغرام">Voir plus sur Instagram</span>
-            </a>
-        </div>
-    </div>
-</section>
-
-<!-- ===== RENDEZ-VOUS ===== -->
-<section id="rendez-vous" class="section rdv-section">
-    <div class="container">
-        <div class="section-header light">
-            <span class="section-tag light-tag" data-fr="Réservation facile" data-ar="حجز سهل">Réservation facile</span>
-            <h2 data-fr="Prendre Rendez-vous" data-ar="احجز موعدك">Prendre Rendez-vous</h2>
-            <p data-fr="Remplissez le formulaire ci-dessous — votre demande sera envoyée directement sur notre WhatsApp." data-ar="املأ النموذج أدناه — سيُرسَل طلبك مباشرة على واتساب الخاص بنا.">Remplissez le formulaire ci-dessous — votre demande sera envoyée directement sur notre WhatsApp.</p>
-        </div>
-        <div class="rdv-wrapper">
-            <form class="rdv-form" id="rdvForm" onsubmit="sendRDV(event)">
-                <div class="form-row">
-                    <div class="form-group">
-                        <label data-fr="Nom Complet *" data-ar="الاسم الكامل *">Nom Complet *</label>
-                        <input type="text" id="fName" placeholder="Votre nom complet" required>
-                    </div>
-                    <div class="form-group">
-                        <label data-fr="Téléphone *" data-ar="رقم الهاتف *">Téléphone *</label>
-                        <input type="tel" id="fPhone" placeholder="+212 6XX-XXXXXX" required>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label data-fr="Date Souhaitée *" data-ar="التاريخ المطلوب *">Date Souhaitée *</label>
-                        <input type="date" id="fDate" required>
-                    </div>
-                    <div class="form-group">
-                        <label data-fr="Heure Souhaitée *" data-ar="الوقت المطلوب *">Heure Souhaitée *</label>
-                        <input type="time" id="fTime" min="09:00" max="21:00" required>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label data-fr="Service Souhaité *" data-ar="الخدمة المطلوبة *">Service Souhaité *</label>
-                    <select id="fService" required>
-                        <option value="" data-fr="-- Choisir un service --" data-ar="-- اختر خدمة --">-- Choisir un service --</option>
-                        <option value="Opticien - Lunettes médicales" data-fr="Opticien - Lunettes médicales" data-ar="بصري - نظارات طبية">Opticien - Lunettes médicales</option>
-                        <option value="Optométriste - Examen de vue" data-fr="Optométriste - Examen de vue" data-ar="قياس البصر - فحص العيون">Optométriste - Examen de vue</option>
-                        <option value="Contactologie - Lentilles" data-fr="Contactologie - Lentilles" data-ar="عدسات لاصقة">Contactologie - Lentilles</option>
-                        <option value="Oculariste - Prothèse oculaire" data-fr="Oculariste - Prothèse oculaire" data-ar="أطراف العين - عيون اصطناعية">Oculariste - Prothèse oculaire</option>
-                        <option value="Lunettes de Soleil" data-fr="Lunettes de Soleil" data-ar="نظارات الشمس">Lunettes de Soleil</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label data-fr="Message (optionnel)" data-ar="رسالة (اختياري)">Message (optionnel)</label>
-                    <textarea id="fMessage" rows="3" placeholder="Décrivez votre besoin ou posez votre question..."></textarea>
-                </div>
-                <button type="submit" class="btn-submit">
-                    <i class="fab fa-whatsapp"></i>
-                    <span data-fr="Confirmer via WhatsApp" data-ar="تأكيد عبر واتساب">Confirmer via WhatsApp</span>
-                </button>
-                <p class="form-note" data-fr="Nous vous confirmerons votre rendez-vous dans les plus brefs délais." data-ar="سنؤكد موعدك في أقرب وقت ممكن.">Nous vous confirmerons votre rendez-vous dans les plus brefs délais.</p>
-            </form>
-            <div class="rdv-info">
-                <div class="info-block reveal">
-                    <div class="ib-icon"><i class="fas fa-clock"></i></div>
-                    <div>
-                        <h4 data-fr="Horaires d'Ouverture" data-ar="أوقات العمل">Horaires d'Ouverture</h4>
-                        <p data-fr="Lundi – Samedi: 9h00 – 21h00" data-ar="الاثنين – السبت: 9:00 – 21:00">Lundi – Samedi: 9h00 – 21h00</p>
-                    </div>
-                </div>
-                <div class="info-block reveal">
-                    <div class="ib-icon"><i class="fab fa-whatsapp"></i></div>
-                    <div>
-                        <h4 data-fr="WhatsApp Direct" data-ar="واتساب مباشر">WhatsApp Direct</h4>
-                        <p>+212 666-849903</p>
-                        <a href="https://wa.me/212666849903" target="_blank" class="quick-wa" data-fr="Écrire maintenant →" data-ar="اكتب الآن →">Écrire maintenant →</a>
-                    </div>
-                </div>
-                <div class="info-block reveal">
-                    <div class="ib-icon"><i class="fas fa-map-marker-alt"></i></div>
-                    <div>
-                        <h4 data-fr="Notre Adresse" data-ar="عنواننا">Notre Adresse</h4>
-                        <p data-fr="Tamsena, Maroc" data-ar="تامسنا، المغرب">Tamsena, Maroc</p>
-                        <a href="https://maps.app.goo.gl/hrVUjuPNgTYFWxdM6" target="_blank" class="quick-wa" data-fr="Voir sur Google Maps →" data-ar="عرض على Google Maps →">Voir sur Google Maps →</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ===== LOCALISATION ===== -->
-<section id="localisation" class="section location-section">
-    <div class="container">
-        <div class="section-header">
-            <span class="section-tag" data-fr="Où nous trouver" data-ar="أين نجدكم">Où nous trouver</span>
-            <h2 data-fr="Notre Localisation" data-ar="موقعنا">Notre Localisation</h2>
-            <p data-fr="Venez nous rendre visite à Tamsena, nous serons ravis de vous accueillir." data-ar="زورونا في تامسنا، سيسعدنا استقبالكم.">Venez nous rendre visite à Tamsena, nous serons ravis de vous accueillir.</p>
-        </div>
-        <div class="location-grid">
-            <div class="map-card reveal">
-                <a href="https://maps.app.goo.gl/hrVUjuPNgTYFWxdM6" target="_blank" class="map-link-card">
-                    <div class="map-visual">
-                        <i class="fas fa-map-marked-alt"></i>
-                        <div class="map-pin"><i class="fas fa-map-marker-alt"></i></div>
-                    </div>
-                    <div class="map-card-content">
-                        <h3 data-fr="Optique Tamsena" data-ar="أوبتيك تامسنا">Optique Tamsena</h3>
-                        <p data-fr="Tamsena, Rabat-Salé-Kénitra, Maroc" data-ar="تامسنا، الرباط-سلا-القنيطرة، المغرب">Tamsena, Rabat-Salé-Kénitra, Maroc</p>
-                        <span class="map-open-btn" data-fr="Ouvrir dans Google Maps" data-ar="فتح في Google Maps">Ouvrir dans Google Maps</span>
-                    </div>
-                </a>
-            </div>
-            <div class="location-details reveal">
-                <div class="loc-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <div>
-                        <h4 data-fr="Adresse" data-ar="العنوان">Adresse</h4>
-                        <p data-fr="Tamsena, Rabat-Salé-Kénitra, Maroc" data-ar="تامسنا، الرباط-سلا-القنيطرة، المغرب">Tamsena, Rabat-Salé-Kénitra, Maroc</p>
-                    </div>
-                </div>
-                <div class="loc-item">
-                    <i class="fab fa-whatsapp"></i>
-                    <div>
-                        <h4>WhatsApp</h4>
-                        <p>+212 666-849903</p>
-                    </div>
-                </div>
-                <div class="loc-item">
-                    <i class="fas fa-clock"></i>
-                    <div>
-                        <h4 data-fr="Horaires" data-ar="أوقات العمل">Horaires</h4>
-                        <p data-fr="Lun–Sam: 9h00 – 21h00" data-ar="الاثنين–السبت: 9:00 – 21:00">Lun–Sam: 9h00 – 21h00</p>
-                    </div>
-                </div>
-                <a href="https://maps.app.goo.gl/hrVUjuPNgTYFWxdM6" target="_blank" class="btn-directions">
-                    <i class="fas fa-directions"></i>
-                    <span data-fr="Obtenir l'Itinéraire" data-ar="الحصول على الاتجاهات">Obtenir l'Itinéraire</span>
-                </a>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ===== CONTACT / SOCIAL ===== -->
-<section id="contact" class="section social-section">
-    <div class="container">
-        <div class="section-header">
-            <span class="section-tag" data-fr="Restez connectés" data-ar="ابقوا على تواصل">Restez connectés</span>
-            <h2 data-fr="Suivez-Nous" data-ar="تابعونا">Suivez-Nous</h2>
-            <p data-fr="Retrouvez nos dernières collections, offres spéciales et actualités sur nos réseaux." data-ar="اكتشف أحدث مجموعاتنا، العروض الخاصة والأخبار على شبكاتنا الاجتماعية.">Retrouvez nos dernières collections, offres spéciales et actualités sur nos réseaux.</p>
-        </div>
-        <div class="social-cards">
-            <a href="https://www.instagram.com/optique_tamesna?igsh=b3pxdjZ1YXo3bmQz" target="_blank" class="soc-card instagram reveal">
-                <div class="soc-icon"><i class="fab fa-instagram"></i></div>
-                <h3>Instagram</h3>
-                <p>@optique_tamesna</p>
-                <span class="soc-btn" data-fr="Voir notre page" data-ar="شاهد صفحتنا">Voir notre page <i class="fas fa-arrow-right"></i></span>
-            </a>
-            <a href="https://www.facebook.com/share/1BAfBjjJYR/" target="_blank" class="soc-card facebook reveal">
-                <div class="soc-icon"><i class="fab fa-facebook-f"></i></div>
-                <h3>Facebook</h3>
-                <p data-fr="Optique Tamsena" data-ar="أوبتيك تامسنا">Optique Tamsena</p>
-                <span class="soc-btn" data-fr="Voir notre page" data-ar="شاهد صفحتنا">Voir notre page <i class="fas fa-arrow-right"></i></span>
-            </a>
-            <a href="https://wa.me/212666849903?text=Bonjour%20Optique%20Tamsena%20%F0%9F%91%93%0A%0AJe%20souhaite%20obtenir%20des%20informations%20sur%20vos%20services%20et%20tarifs."
-               target="_blank" class="soc-card whatsapp reveal">
-                <div class="soc-icon"><i class="fab fa-whatsapp"></i></div>
-                <h3>WhatsApp</h3>
-                <p>+212 666-849903</p>
-                <span class="soc-btn" data-fr="Nous écrire" data-ar="راسلنا">Nous écrire <i class="fas fa-arrow-right"></i></span>
-            </a>
-        </div>
-    </div>
-</section>
-
-<!-- ===== FOOTER ===== -->
-<footer class="footer">
-    <div class="container">
-        <div class="footer-grid">
-            <div class="footer-brand">
-                <div class="footer-logo">
-                    <i class="fas fa-glasses"></i>
-                    <span>Optique Tamsena</span>
-                </div>
-                <p data-fr="Votre expert en optique médicale et lunettes de soleil à Tamsena. Qualité, expertise et service depuis plus de 10 ans." data-ar="خبيرك في البصريات الطبية ونظارات الشمس في تامسنا. جودة، خبرة وخدمة منذ أكثر من 10 سنوات.">
-                    Votre expert en optique médicale et lunettes de soleil à Tamsena. Qualité, expertise et service depuis plus de 10 ans.
-                </p>
-                <div class="footer-socials">
-                    <a href="https://www.instagram.com/optique_tamesna?igsh=b3pxdjZ1YXo3bmQz" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="https://www.facebook.com/share/1BAfBjjJYR/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://wa.me/212666849903" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-                </div>
-            </div>
-            <div class="footer-col">
-                <h4 data-fr="Services" data-ar="الخدمات">Services</h4>
-                <ul>
-                    <li><a href="#services" data-fr="Opticien" data-ar="بصري">Opticien</a></li>
-                    <li><a href="#services" data-fr="Optométriste" data-ar="قياس البصر">Optométriste</a></li>
-                    <li><a href="#services" data-fr="Contactologie" data-ar="عدسات لاصقة">Contactologie</a></li>
-                    <li><a href="#services" data-fr="Oculariste" data-ar="أطراف العين">Oculariste</a></li>
-                    <li><a href="#services" data-fr="Lunettes de Soleil" data-ar="نظارات الشمس">Lunettes de Soleil</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4 data-fr="Contact" data-ar="التواصل">Contact</h4>
-                <p><i class="fab fa-whatsapp"></i> +212 666-849903</p>
-                <p><i class="fas fa-map-marker-alt"></i> <span data-fr="Tamsena, Maroc" data-ar="تامسنا، المغرب">Tamsena, Maroc</span></p>
-                <p><i class="fas fa-clock"></i> <span data-fr="9h–21h (Lun–Sam)" data-ar="9–21 (الاثنين–السبت)">9h–21h (Lun–Sam)</span></p>
-                <a href="https://maps.app.goo.gl/hrVUjuPNgTYFWxdM6" target="_blank" class="footer-map-btn" data-fr="📍 Voir sur Maps" data-ar="📍 عرض على الخريطة">📍 Voir sur Maps</a>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>© <span id="footerYear"></span> Optique Tamsena. <span data-fr="Tous droits réservés." data-ar="جميع الحقوق محفوظة.">Tous droits réservés.</span></p>
-        </div>
-    </div>
-</footer>
-
-<!-- ===== WHATSAPP FLOAT ===== -->
-<a href="https://wa.me/212666849903?text=Bonjour%20Optique%20Tamsena%20%F0%9F%91%93%0A%0AJe%20souhaite%20obtenir%20des%20informations%20sur%20vos%20services%20et%20tarifs."
-   class="wa-float" target="_blank" id="waFloat">
-    <i class="fab fa-whatsapp"></i>
-    <span class="wa-pulse"></span>
-    <div class="wa-tooltip">
-        <strong data-fr="Chattez avec nous !" data-ar="تحدث معنا!">Chattez avec nous !</strong>
-        <small data-fr="Réponse rapide garantie" data-ar="رد سريع مضمون">Réponse rapide garantie</small>
-    </div>
-</a>
-
-<!-- ===== SCROLL TO TOP ===== -->
-<button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Scroll to top">
-    <i class="fas fa-chevron-up"></i>
-</button>
-
-<script src="script.js"></script>
-
-<!-- ===== VIDEO MODAL ===== -->
-<div class="video-modal" id="videoModal">
-    <div class="vm-backdrop" onclick="closeVideoModal()"></div>
-    <div class="vm-content">
-        <button class="vm-close" onclick="closeVideoModal()" aria-label="Fermer">
-            <i class="fas fa-times"></i>
-        </button>
-        <div class="vm-header">
-            <i class="fas fa-glasses"></i>
-            <span data-fr="Optique Tamsena — Notre Expertise" data-ar="أوبتيك تامسنا — خبرتنا">Optique Tamsena — Notre Expertise</span>
-        </div>
-        <video src="videos/video1.mp4" controls id="modalVideo" class="vm-video" playsinline></video>
-    </div>
+<!-- Mobile Menu -->
+<div id="mobile-menu">
+  <button class="mob-close" onclick="closeMenu()"><i class="fas fa-times"></i></button>
+  <a href="#hero"     onclick="closeMenu()">الرئيسية</a>
+  <a href="#about"    onclick="closeMenu()">من نحن</a>
+  <a href="#services" onclick="closeMenu()">خدماتنا</a>
+  <a href="#gallery"  onclick="closeMenu()">معرضنا</a>
+  <a href="#contact"  onclick="closeMenu()">اتصل بنا</a>
 </div>
 
+<!-- ============================================================
+     HERO
+============================================================ -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-rays"></div>
+
+  <!-- Large decorative glasses in background -->
+  <div class="hero-deco">
+    <svg viewBox="0 0 900 280" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="dGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%"   stop-color="#C9A028" stop-opacity=".28"/>
+          <stop offset="100%" stop-color="#C9A028" stop-opacity=".03"/>
+        </linearGradient>
+        <linearGradient id="dGrad2" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%"   stop-color="#C9A028" stop-opacity=".12"/>
+          <stop offset="100%" stop-color="#C9A028" stop-opacity=".01"/>
+        </linearGradient>
+      </defs>
+      <!-- Outer left lens -->
+      <ellipse cx="280" cy="140" rx="200" ry="118" fill="none" stroke="url(#dGrad)" stroke-width="1.5"/>
+      <!-- Outer right lens -->
+      <ellipse cx="620" cy="140" rx="200" ry="118" fill="none" stroke="url(#dGrad)" stroke-width="1.5"/>
+      <!-- Inner left lens -->
+      <ellipse cx="280" cy="140" rx="170" ry="96" fill="none" stroke="url(#dGrad2)" stroke-width=".8"/>
+      <!-- Inner right lens -->
+      <ellipse cx="620" cy="140" rx="170" ry="96" fill="none" stroke="url(#dGrad2)" stroke-width=".8"/>
+      <!-- Bridge -->
+      <path d="M 480,128 Q 450,108 420,128" fill="none" stroke="url(#dGrad)" stroke-width="2.5"/>
+      <!-- Left arm -->
+      <path d="M 80,125 Q 45,118 10,130" fill="none" stroke="url(#dGrad)" stroke-width="2.5" stroke-linecap="round"/>
+      <!-- Right arm -->
+      <path d="M 820,125 Q 855,118 890,130" fill="none" stroke="url(#dGrad)" stroke-width="2.5" stroke-linecap="round"/>
+    </svg>
+  </div>
+
+  <!-- Particles -->
+  <div class="particles">
+    <span class="p" style="width:4px;height:4px;top:12%;left:7%;--d:9s;--del:0s"></span>
+    <span class="p" style="width:2px;height:2px;top:74%;left:6%;--d:7s;--del:1s"></span>
+    <span class="p" style="width:3px;height:3px;top:20%;left:90%;--d:11s;--del:2s"></span>
+    <span class="p" style="width:5px;height:5px;top:84%;left:80%;--d:8s;--del:.5s"></span>
+    <span class="p" style="width:2px;height:2px;top:44%;left:94%;--d:10s;--del:1.5s"></span>
+    <span class="p" style="width:3px;height:3px;top:30%;left:13%;--d:12s;--del:3s"></span>
+    <span class="p" style="width:2px;height:2px;top:62%;left:4%;--d:6s;--del:2.5s"></span>
+    <span class="p" style="width:4px;height:4px;top:6%;left:50%;--d:14s;--del:.8s"></span>
+    <span class="p" style="width:2px;height:2px;top:92%;left:35%;--d:9s;--del:1.2s"></span>
+    <span class="p" style="width:3px;height:3px;top:52%;left:46%;--d:13s;--del:4s"></span>
+    <span class="p" style="width:2px;height:2px;top:16%;left:68%;--d:10s;--del:1.8s"></span>
+    <span class="p" style="width:4px;height:4px;top:68%;left:22%;--d:7s;--del:2.2s"></span>
+    <span class="p" style="width:2px;height:2px;top:38%;left:78%;--d:11s;--del:3.5s"></span>
+    <span class="p" style="width:3px;height:3px;top:85%;left:58%;--d:8s;--del:.3s"></span>
+  </div>
+
+  <div class="hero-content">
+    <!-- Top accent line with label -->
+    <div class="hero-eyeline">
+      <span class="hero-eyeline-bar"></span>
+      <span class="hero-eyeline-text">OPTICIEN &nbsp;·&nbsp; OPTOMÉTRISTE</span>
+      <span class="hero-eyeline-bar r"></span>
+    </div>
+
+    <!-- Brand name — fashion luxury style -->
+    <div class="hero-name-wrap">
+      <span class="hero-name-1">ELBARAKA</span>
+    </div>
+    <div class="hero-name-wrap">
+      <span class="hero-name-2">VISION</span>
+    </div>
+
+    <!-- Gold ornament divider -->
+    <div class="hero-divider">
+      <span class="hero-divider-line"></span>
+      <i class="fas fa-gem"></i>
+      <span class="hero-divider-line r"></span>
+    </div>
+
+    <!-- Slogan -->
+    <p class="hero-slogan"><em>رؤيتكم راحتنا...</em> وثقتكم فخرنا</p>
+
+    <!-- CTAs -->
+    <div class="hero-actions">
+      <a href="#contact" class="btn btn-gold"><i class="fas fa-calendar-check"></i> احجز موعداً</a>
+      <a href="#services" class="btn btn-outline"><i class="fas fa-arrow-left"></i> خدماتنا</a>
+    </div>
+  </div>
+
+  <div class="hero-scroll">
+    <span>اكتشف المزيد</span>
+    <i class="fas fa-chevron-down"></i>
+  </div>
+</section>
+
+<!-- ============================================================
+     ABOUT
+============================================================ -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+
+      <!-- Visual -->
+      <div class="about-visual reveal-l">
+        <div class="about-frame">
+          <img
+            src="images/about-glasses.png"
+            alt="نظارات البصريات البركة"
+            class="about-real-img"
+          />
+          <div class="about-frame-border"></div>
+        </div>
+        <div class="about-badge-pill">
+          <span class="badge-num">5+</span>
+          <span class="badge-label">سنوات<br>من الخبرة</span>
+        </div>
+      </div>
+
+      <!-- Content -->
+      <div class="about-content reveal-r">
+        <span class="section-tag">من نحن</span>
+        <div class="ornament">
+          <span class="ornament-line"></span>
+          <i class="fas fa-gem"></i>
+          <span class="ornament-line r"></span>
+        </div>
+        <h2 class="section-title">رؤية واضحة، خبرة حقيقية</h2>
+        <p class="about-text">في البصريات البركة، نقدم خدمات بصرية احترافية بمستوى عالمي. نجمع بين أحدث التقنيات في فحص النظر وأرقى ماركات الإطارات العالمية، لنمنحكم تجربة بصرية لا مثيل لها. فريقنا المتخصص يرحب بكم في سوق الأربعاء الغرب.</p>
+        <a href="#contact" class="btn btn-gold"><i class="fas fa-phone"></i> تواصل معنا</a>
+
+        <!-- Stats -->
+        <div class="about-stats">
+          <div class="stat-card reveal d1">
+            <div class="stat-num" data-target="500">0</div>
+            <div class="stat-lbl">عميل راضٍ</div>
+          </div>
+          <div class="stat-card reveal d2">
+            <div class="stat-num" data-target="50">0</div>
+            <div class="stat-lbl">ماركة عالمية</div>
+          </div>
+          <div class="stat-card reveal d3">
+            <div class="stat-num">5+</div>
+            <div class="stat-lbl">سنوات خبرة</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SERVICES
+============================================================ -->
+<section id="services">
+  <div class="container" style="position:relative;z-index:1">
+    <div class="srv-header reveal">
+      <span class="section-tag">خدماتنا</span>
+      <div class="ornament">
+        <span class="ornament-line" style="background:linear-gradient(90deg,transparent,var(--gold-light))"></span>
+        <i class="fas fa-star" style="color:var(--gold-light)"></i>
+        <span class="ornament-line r" style="background:linear-gradient(90deg,var(--gold-light),transparent)"></span>
+      </div>
+      <h2 class="section-title">كل ما تحتاجه لرؤية أفضل</h2>
+      <p class="section-subtitle">نوفر لكم تشكيلة متكاملة من الخدمات البصرية بأعلى مستويات الجودة والاحترافية</p>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-card reveal d1">
+        <div class="srv-icon"><i class="fas fa-eye"></i></div>
+        <div class="srv-name">فحص النظر</div>
+        <p class="srv-desc">فحص شامل ودقيق للنظر باستخدام أحدث الأجهزة الطبية المعتمدة</p>
+      </div>
+      <div class="service-card reveal d2">
+        <div class="srv-icon"><i class="fas fa-glasses"></i></div>
+        <div class="srv-name">النظارات الطبية</div>
+        <p class="srv-desc">تشكيلة واسعة من الإطارات العالمية بعدسات بصرية عالية الجودة</p>
+      </div>
+      <div class="service-card reveal d3">
+        <div class="srv-icon"><i class="fas fa-sun"></i></div>
+        <div class="srv-name">النظارات الشمسية</div>
+        <p class="srv-desc">أحدث صيحات النظارات الشمسية الفاخرة مع حماية 100% من الأشعة فوق البنفسجية</p>
+      </div>
+      <div class="service-card reveal d4">
+        <div class="srv-icon"><i class="fas fa-circle-dot"></i></div>
+        <div class="srv-name">العدسات اللاصقة</div>
+        <p class="srv-desc">عدسات لاصقة يومية وشهرية من أفضل الماركات العالمية لأقصى راحة</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     GALLERY
+============================================================ -->
+<section id="gallery">
+  <div class="container">
+    <div class="gal-header reveal">
+      <span class="section-tag">معرضنا</span>
+      <div class="ornament">
+        <span class="ornament-line"></span>
+        <i class="fas fa-gem"></i>
+        <span class="ornament-line r"></span>
+      </div>
+      <h2 class="section-title">تشكيلتنا الحصرية</h2>
+      <p class="section-subtitle" style="margin:0 auto">نخبة من أرقى الإطارات والنظارات الفاخرة من أشهر الماركات العالمية</p>
+    </div>
+
+    <div class="gallery-grid">
+
+      <!-- 1 — tall: عرض النظارات الشمسية -->
+      <div class="gal-item tall reveal">
+        <img src="images/gallery-sunglasses.jpg" alt="عرض النظارات الشمسية" loading="lazy"/>
+        <div class="gal-overlay"><span class="gal-label">تشكيلة النظارات الشمسية</span></div>
+      </div>
+
+      <!-- 2 — إطارات ذهبية وفضية -->
+      <div class="gal-item reveal d1">
+        <img src="images/gallery-frames.jpg" alt="إطارات ذهبية وفضية" loading="lazy"/>
+        <div class="gal-overlay"><span class="gal-label">إطارات ذهبية وفضية</span></div>
+      </div>
+
+      <!-- 3 — إطار وردي أنيق -->
+      <div class="gal-item reveal d2">
+        <img src="images/gallery-pink.jpg" alt="إطار وردي أنيق" loading="lazy"/>
+        <div class="gal-overlay"><span class="gal-label">إطارات أنيقة</span></div>
+      </div>
+
+      <!-- 4 — فحص النظر -->
+      <div class="gal-item reveal d1">
+        <img src="images/gallery-eyetest.jpg" alt="فحص النظر" loading="lazy"/>
+        <div class="gal-overlay"><span class="gal-label">فحص النظر الدقيق</span></div>
+      </div>
+
+      <!-- 5 — اختيار النظارة -->
+      <div class="gal-item reveal d2">
+        <img src="images/gallery-woman.jpg" alt="اختيار النظارة" loading="lazy"/>
+        <div class="gal-overlay"><span class="gal-label">اختاري إطارك المثالي</span></div>
+      </div>
+
+      <!-- 6 — wide: خدمة داخل المحل -->
+      <div class="gal-item wide reveal d1">
+        <img src="images/gallery-service.jpg" alt="خدمة احترافية" loading="lazy"/>
+        <div class="gal-overlay"><span class="gal-label">خدمة احترافية داخل المحل</span></div>
+      </div>
+
+      <!-- 7 — عناية بصرية للأطفال -->
+      <div class="gal-item reveal d2">
+        <img src="images/gallery-child.jpg" alt="عناية بصرية للأطفال" loading="lazy"/>
+        <div class="gal-overlay"><span class="gal-label">عناية بصرية للأطفال</span></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CONTACT
+============================================================ -->
+<section id="contact">
+  <div class="container">
+    <div class="contact-header reveal">
+      <span class="section-tag">اتصل بنا</span>
+      <div class="ornament">
+        <span class="ornament-line"></span>
+        <i class="fas fa-gem"></i>
+        <span class="ornament-line r"></span>
+      </div>
+      <h2 class="section-title">نحن في خدمتكم</h2>
+      <p class="section-subtitle" style="margin:0 auto">لا تترددوا في التواصل معنا، فريقنا جاهز لمساعدتكم في اختيار النظارات المثالية</p>
+    </div>
+
+    <div class="contact-grid">
+      <!-- Info -->
+      <div class="contact-info reveal-l">
+
+        <!-- Address -->
+        <a href="https://maps.google.com/?q=Rue+Renaissance+Souk+Elarbaa+du+Gharb+Morocco" target="_blank" class="c-card">
+          <div class="c-icon"><i class="fas fa-location-dot"></i></div>
+          <div>
+            <h4>العنوان</h4>
+            <p>N 11 Rue Renaissance, Souk Elarbaa Du Gharb<br>Souq Larb'a al Gharb 14300, Morocco</p>
+          </div>
+        </a>
+
+        <!-- Phone -->
+        <a href="tel:+212664464992" class="c-card">
+          <div class="c-icon"><i class="fas fa-phone"></i></div>
+          <div>
+            <h4>الهاتف</h4>
+            <span>+212 664 464 992</span>
+          </div>
+        </a>
+
+        <!-- Hours -->
+        <div class="c-card">
+          <div class="c-icon"><i class="fas fa-clock"></i></div>
+          <div>
+            <h4>ساعات العمل</h4>
+            <p>الاثنين – السبت: 9:00 ص – 8:00 م<br>الأحد: 10:00 ص – 5:00 م</p>
+          </div>
+        </div>
+
+        <!-- WhatsApp -->
+        <a href="https://wa.me/212664464992" target="_blank" class="wa-btn">
+          <i class="fab fa-whatsapp"></i>
+          <span>تواصل عبر واتساب</span>
+        </a>
+
+        <!-- Social -->
+        <div>
+          <h4 style="font-size:.75rem;font-weight:700;color:var(--text-light);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:12px">تابعونا</h4>
+          <div class="social-row">
+            <a href="https://www.facebook.com/Elbaraka-Vision-105240268851103" target="_blank" class="soc-link" title="Facebook">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://www.instagram.com/elbarakavision" target="_blank" class="soc-link" title="Instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://wa.me/212664464992" target="_blank" class="soc-link" title="WhatsApp">
+              <i class="fab fa-whatsapp"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Map -->
+      <div class="reveal-r">
+        <div class="map-wrap">
+          <iframe
+            src="https://maps.google.com/maps?q=Rue+Renaissance+Souk+Elarbaa+du+Gharb+14300+Morocco&t=&z=15&ie=UTF8&iwloc=&output=embed"
+            allowfullscreen loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Elbaraka Vision Location">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+============================================================ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+
+      <div class="footer-brand">
+        <a href="#hero" class="nav-logo" style="margin-bottom:14px;display:inline-flex">
+          <svg style="width:40px;height:40px" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="fgold" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%"   stop-color="#F0D060"/>
+                <stop offset="50%"  stop-color="#C9A028"/>
+                <stop offset="100%" stop-color="#9A7510"/>
+              </linearGradient>
+              <path id="fTop"    d="M 22,100 A 78,78 0 0,1 178,100"/>
+              <path id="fBottom" d="M 28,112 A 75,75 0 0,0 172,112"/>
+            </defs>
+            <circle cx="100" cy="100" r="97" fill="url(#fgold)"/>
+            <circle cx="100" cy="100" r="91" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
+            <ellipse cx="74"  cy="108" rx="24" ry="19" fill="none" stroke="white" stroke-width="3.5"/>
+            <ellipse cx="126" cy="108" rx="24" ry="19" fill="none" stroke="white" stroke-width="3.5"/>
+            <path d="M 98,105 Q 100,101 102,105" fill="none" stroke="white" stroke-width="3.5"/>
+            <path d="M 50,100 L 34,96"   fill="none" stroke="white" stroke-width="3" stroke-linecap="round"/>
+            <path d="M 150,100 L 166,96" fill="none" stroke="white" stroke-width="3" stroke-linecap="round"/>
+            <text x="100" y="115" font-family="Georgia,serif" font-size="15" font-weight="bold" fill="white" text-anchor="middle" letter-spacing="1">EV</text>
+            <text font-family="Arial,sans-serif" font-size="8.5" fill="white" font-weight="600" letter-spacing="2">
+              <textPath href="#fTop"    startOffset="8%">OPTICIEN · OPTOMÉTRISTE</textPath>
+            </text>
+            <text font-family="Arial,sans-serif" font-size="9" fill="white" font-weight="600" letter-spacing="1.5">
+              <textPath href="#fBottom" startOffset="13%">El Baraka Vision</textPath>
+            </text>
+          </svg>
+          <div class="nav-logo-text" style="margin-right:10px">
+            <span class="nav-logo-name">Elbaraka Vision</span>
+            <span class="nav-logo-sub">Opticien · Optométriste</span>
+          </div>
+        </a>
+        <p>بصريات البركة — وجهتكم الأولى للرعاية البصرية الاحترافية وأرقى ماركات النظارات في سوق الأربعاء الغرب.</p>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/Elbaraka-Vision-105240268851103" target="_blank" class="soc-link" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/elbarakavision" target="_blank" class="soc-link" title="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://wa.me/212664464992" target="_blank" class="soc-link" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>روابط سريعة</h4>
+        <ul class="footer-links">
+          <li><a href="#hero">الرئيسية</a></li>
+          <li><a href="#about">من نحن</a></li>
+          <li><a href="#services">خدماتنا</a></li>
+          <li><a href="#gallery">معرضنا</a></li>
+          <li><a href="#contact">اتصل بنا</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>معلومات التواصل</h4>
+        <ul class="footer-links">
+          <li><a href="tel:+212664464992">+212 664 464 992</a></li>
+          <li><a href="https://wa.me/212664464992" target="_blank">WhatsApp</a></li>
+          <li><a href="https://www.facebook.com/Elbaraka-Vision-105240268851103" target="_blank">Facebook</a></li>
+          <li><a href="https://www.instagram.com/elbarakavision" target="_blank">Instagram</a></li>
+        </ul>
+        <p style="color:rgba(255,255,255,.38);font-size:.8rem;margin-top:16px;line-height:1.7">
+          N 11 Rue Renaissance<br>Souk Elarbaa Du Gharb, 14300
+        </p>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copy">
+        &copy; <span id="year"></span> <span>Elbaraka Vision</span>. جميع الحقوق محفوظة.
+      </p>
+      <p class="footer-copy" style="display:flex;align-items:center;gap:6px">
+        <i class="fas fa-heart" style="color:var(--gold)"></i>
+        صُنع بـ ❤ في المغرب
+      </p>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================================
+     FLOATING WHATSAPP
+============================================================ -->
+<a href="https://wa.me/212664464992" target="_blank" class="float-wa" title="WhatsApp">
+  <i class="fab fa-whatsapp"></i>
+  <span class="float-wa-tip">تحدث معنا الآن!</span>
+</a>
+
+<!-- Back to Top -->
+<button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">
+  <i class="fas fa-chevron-up"></i>
+</button>
+
+<!-- ============================================================
+     JAVASCRIPT
+============================================================ -->
+<script>
+/* ---------------------------------------------------------------
+   NAV SCROLL
+--------------------------------------------------------------- */
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 50);
+  document.getElementById('btt').classList.toggle('show', window.scrollY > 400);
+});
+
+/* ---------------------------------------------------------------
+   MOBILE MENU
+--------------------------------------------------------------- */
+function openMenu()  { document.getElementById('mobile-menu').classList.add('open'); }
+function closeMenu() { document.getElementById('mobile-menu').classList.remove('open'); }
+
+/* ---------------------------------------------------------------
+   SCROLL REVEAL
+--------------------------------------------------------------- */
+const revealObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('shown');
+      revealObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12 });
+
+document.querySelectorAll('.reveal,.reveal-l,.reveal-r').forEach(el => revealObs.observe(el));
+
+/* ---------------------------------------------------------------
+   COUNTER ANIMATION
+--------------------------------------------------------------- */
+function animateCounter(el, target) {
+  let start = 0;
+  const step = target / 100;
+  const timer = setInterval(() => {
+    start = Math.min(start + step, target);
+    el.textContent = Math.floor(start) + '+';
+    if (start >= target) clearInterval(timer);
+  }, 16);
+}
+
+new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting && e.target.dataset.target) {
+      animateCounter(e.target, +e.target.dataset.target);
+      e.target.removeAttribute('data-target');
+    }
+  });
+}, { threshold: 0.5 }).observe && document.querySelectorAll('.stat-num[data-target]').forEach(el => {
+  new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { animateCounter(e.target, +e.target.dataset.target); e.target.removeAttribute('data-target'); }
+    });
+  }, { threshold: 0.5 }).observe(el);
+});
+
+/* ---------------------------------------------------------------
+   ACTIVE NAV LINK
+--------------------------------------------------------------- */
+const sections = document.querySelectorAll('section[id]');
+const navLinks  = document.querySelectorAll('.nav-links a[href^="#"]');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(s => { if (window.scrollY >= s.offsetTop - 120) current = s.id; });
+  navLinks.forEach(a => {
+    a.style.color = a.getAttribute('href') === '#' + current ? 'var(--gold)' : '';
+  });
+}, { passive: true });
+
+/* ---------------------------------------------------------------
+   FOOTER YEAR
+--------------------------------------------------------------- */
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
